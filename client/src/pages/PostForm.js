@@ -257,23 +257,51 @@ export function PostForm() {
           
           
           <Modal.Body>
-            <label
-              htmlFor="image"
-            >
-              Image
-            </label>
+            <label htmlFor="image">Primera imagen</label>
           </Modal.Body>            
           <Modal.Body>
             <input
               type="file"
               name="image"
-              onChange={(e) => setFieldValue("image", e.target.files[0])}
-            />
+              onChange={(e) => setFieldValue("image", e.target.files[0])}/>
             <ErrorMessage
               component="p"
-              name="image"
-            />     
+              name="image"/>     
           </Modal.Body>
+
+          <Modal.Body>
+            <label htmlFor="imagea">Segunda imagen</label>
+          </Modal.Body>            
+          <Modal.Body>
+            <input
+              type="file"
+              name="imagea"
+              onChange={(e) => setFieldValue("imagea", e.target.files[0])}/>
+            <ErrorMessage
+              component="p"
+              name="imagea"/>     
+          </Modal.Body>
+
+          <Modal.Body>
+            <label htmlFor="imagec">Tercera Imagen</label>
+          </Modal.Body>            
+          <Modal.Body>
+            <input
+              type="file"
+              name="imagec"
+              onChange={(e) => setFieldValue("imagec", e.target.files[0])}/>
+            <ErrorMessage
+              component="p"
+              name="imagec"/>     
+          </Modal.Body>
+
+
+
+
+
+
+
+
 
         <Modal.Footer>
           <Button 

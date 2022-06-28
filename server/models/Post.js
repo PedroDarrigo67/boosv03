@@ -18,6 +18,9 @@ const postSchema = new mongoose.Schema(
         metrosterreno: { type: String, trim: true },
         tipo: { type: String, trim: true },
         image:{ url: String, public_id: String}, 
+        imagea:{ url: String, public_id: String},
+         
+        imagec:{ url: String, public_id: String}, 
         usuario: {type: String},  
         date: { type: Date, default: Date.now}       
     }, {

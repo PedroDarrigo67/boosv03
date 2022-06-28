@@ -1,15 +1,13 @@
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import styled from "styled-components";
-import {Link} from 'react-router-dom'
+
+import {Link} from 'react-router-dom';
 import { useAuth0 } from "@auth0/auth0-react";
 import {LoginButton} from './LoginButton';
 import {LogoutButton} from './LogoutButton';
 
-const StyledLink = styled(Link)`
-  color: ${({ inverted }) => (inverted ? "white" : "chartreuse")};
-`
+
 
 
 export function NavbarDemo() {
@@ -27,8 +25,13 @@ export function NavbarDemo() {
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
-            <Link to="/new">Edicion</Link>
-           
+              
+              
+              <Link to="/new">NuevoPost</Link>
+              <Link to="/users">Usuario</Link>
+              <Link to="/users/new">Usuario</Link>
+
+              
             
           </Nav>
           <Nav>

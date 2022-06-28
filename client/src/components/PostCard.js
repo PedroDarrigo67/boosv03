@@ -23,6 +23,11 @@ export function PostCard({ post }) {
               <Col sm={6}>
                 <Card.Subtitle className="mb-2 text-muted">{post.detalle}</Card.Subtitle></Col>
               <Col sm={6}></Col>
+              <Col sm={3}>
+                <Card.Title>
+                 
+                </Card.Title>
+              </Col>
             </Row>
             
             <Row>
@@ -45,6 +50,7 @@ export function PostCard({ post }) {
               <Col sm={3}>m2 Const:
                 {post.metrosconstruidos}
               </Col>
+              
             </Row>
             <Row>  
               <Col sm={2}>Hambitaciones:
@@ -53,17 +59,30 @@ export function PostCard({ post }) {
               <Col sm={3}>m2 Const:
                 {post.metrosterreno}
               </Col>
+              
               </Row>
             <Row>  
               <Col sm={2}>Plantas:
                 {post.plantas}
               </Col>
+              <Col sm={3}>
+                
+              </Col>
+              <Col sm={2}>
+                {post.image && <img src={post.image.url} alt={post.title} className="w-100 p-0 rounded-3"/>}
+              </Col>
+              <Col sm={2}>
+                {post.imagea && <img src={post.imagea.url} alt={post.title} className="w-100 p-0 rounded-3"/>}
+              </Col>
+              <Col sm={2}>
+                {post.imagec && <img src={post.imagec.url} alt={post.title} className="w-100 p-0 rounded-3"/>}
+              </Col>
             </Row>
             
             
             <Row>
-            
-              
+              <Col sm={8}></Col>
+              <Col sm={4}>cod. publicacion: {post._id}</Col>
             </Row>
           
           

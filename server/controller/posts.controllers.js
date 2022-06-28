@@ -15,9 +15,45 @@ export const getPosts = async (req, res) => {
 export const createPost = async (req, res) => {
     try {
       const { nombre, detalle, direccion, altura, barrio, ambientes, precio, moneda, habilitada, plantas, habitaciones, banos, 
-        metrosconstruidos, metrosterreno, tipo, usuario} = req.body;      
+        metrosconstruidos, metrosterreno, tipo, usuario} = req.body; 
+        let image, imagea, imagec;
+
+        if (req.files.image) {
+            const result = await uploadImage(req.files.image.tempFilePath) 
+            await fs.remove(req.files.image.tempFilePath)
+            image = {
+                url: result.secure_url,
+                public_id: result.public_id
+            }      
+        }
+
+        if (req.files.imagea) {
+            const result = await uploadImage(req.files.imagea.tempFilePath) 
+            await fs.remove(req.files.imagea.tempFilePath)
+            imagea = {
+                url: result.secure_url,
+                public_id: result.public_id
+            }          
+        }
+
+       
+
+        if (req.files.imagec) {
+            const result = await uploadImage(req.files.imagec.tempFilePath) 
+            await fs.remove(req.files.imagec.tempFilePath)
+            imagec = {
+                url: result.secure_url,
+                public_id: result.public_id
+            }          
+        }
+        
+        
+
       const newPost = new Post({nombre, detalle, direccion, altura, barrio, ambientes, precio, moneda, habilitada, plantas, habitaciones, banos, 
-        metrosconstruidos, metrosterreno, tipo, usuario})
+        metrosconstruidos, metrosterreno, tipo, usuario, image, imagea, imagec})
+
+       
+
       await newPost.save();       
       return res.json(newPost);
     } catch (error) {

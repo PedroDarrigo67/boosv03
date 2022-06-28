@@ -4,10 +4,10 @@ import {
   deletePostRequest,
   createPostRequest,
   getPostRequest,
-  updatePostRequest,
+  updatePostRequest,  
 } from "../api/posts";
 
-  const postContext = createContext();
+const postContext = createContext();
 
 export const usePosts = () => {
   const context = useContext(postContext);

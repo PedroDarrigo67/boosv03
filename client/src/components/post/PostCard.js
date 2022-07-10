@@ -1,9 +1,5 @@
-import toast from "react-hot-toast";
-import { usePosts } from "../context/postContext";
 import { useNavigate } from "react-router-dom";
 import Card from 'react-bootstrap/Card';
-import {Link} from 'react-router-dom';
-
 import {Container, Row, Col} from 'react-bootstrap';
 
 export function PostCard({ post }) {
@@ -81,7 +77,7 @@ export function PostCard({ post }) {
             
             
             <Row>
-              <Col sm={8}></Col>
+              <Col sm={8}>{post.usuario}</Col>
               <Col sm={4}>cod. publicacion: {post._id}</Col>
             </Row>
           

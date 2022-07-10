@@ -14,8 +14,8 @@ export const getPosts = async (req, res) => {
 
 export const createPost = async (req, res) => {
     try {
-      const { nombre, detalle, direccion, altura, barrio, ambientes, precio, moneda, habilitada, plantas, habitaciones, banos, 
-        metrosconstruidos, metrosterreno, tipo, usuario} = req.body; 
+      const { nombre, detalle, direccion, altura, barrio, ambientes, precio, moneda, habilitada, plantas, 
+        habitaciones, banos, metrosconstruidos, metrosterreno, tipo, usuario} = req.body; 
         let image, imagea, imagec;
 
         if (req.files.image) {

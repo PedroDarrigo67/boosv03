@@ -1,7 +1,8 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import {
   getUsersRequest,
-  createUserRequest,  
+  createUserRequest, 
+  deleteUserRequest, 
 } from "../api/users";
 
 
@@ -24,6 +25,13 @@ useEffect(() => {
   })();
 }, []);
 
+const deleteUser = async (id) => {
+  const res = await deleteUserRequest(id);
+  if (res.status === 204) {
+    setUsers(users.filter((user) => user._id !== id));
+  }
+};
+
 
 
 const createUser = async (user) => {
@@ -38,7 +46,7 @@ const createUser = async (user) => {
   // value ponemos lo que compartimos.
   return (
     <userContext.Provider
-      value={{ users, createUser }}
+      value={{ users, createUser, deleteUser }}
     >
       {children}
     </userContext.Provider>

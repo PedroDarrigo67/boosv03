@@ -4,8 +4,10 @@ const userSchema = new mongoose.Schema(
   {
       username: {type: String, required: true, unique: true, trim: true},
       password: { type: String, required: true },
+      mailito: {type: String, required: true, unique: true, trim: true},
       calificacion: Number,
       date: { type: Date, default: new Date() },
+      
   }, {
       timestamps: true
   });

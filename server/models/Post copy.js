@@ -7,7 +7,7 @@ const postSchema = new mongoose.Schema(
         direccion: { type: String, required: true, trim: true },
         altura: { type: String, required: true, trim: true },
         barrio: { type: String, required: true, trim: true },
-        ambientes: { type: String, trim: true },
+        ambientes: { type: String, required: true, trim: true },
         precio: { type: Number, required: true },
         moneda: { type: String, required: true},
         habilitada: {  type: Boolean, default: true },
@@ -21,7 +21,10 @@ const postSchema = new mongoose.Schema(
         imagea:{ url: String, public_id: String},
          
         imagec:{ url: String, public_id: String}, 
-        usuario :{ type: String, trim: true},  
+        usuario :{
+          type:mongoose.Schema.Types.ObjectId,
+          ref:'User'
+      },  
         date: { type: Date, default: Date.now}       
     }, {
         timestamps: true

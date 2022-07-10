@@ -14,9 +14,7 @@ import Button from 'react-bootstrap/Button';
 import {NavbarDemo} from '../../components/NavbarDemo/NavbarDemo';
 
 
-
 export function PostForm() {
-  
   const { users } = useUsers();
   const { createPost, getPost, updatePost } = usePosts();
   const navigate = useNavigate();
@@ -76,203 +74,209 @@ export function PostForm() {
      <NavbarDemo/>
       <Container>
         <Row>
-          <Col>
-            <Formik
-              initialValues={post}
-              enableReinitialize
-              validationSchema={Yup.object({
-                nombre: Yup.string().required("un nombre es requerido"),
-                detalle: Yup.string().required("Description es requerido"),
-                direccion: Yup.string().required("direccion es requerido"),
-                altura: Yup.string().required("direccion es requerido"),
-              })}
-              onSubmit={async (values, actions) => {
-              if (params.id) {
-                  await updatePost(params.id, values);
-              } else {
-                  await createPost(values);
-              }
-              actions.resetForm();
-              actions.setSubmitting(false);
-              // navigate("/");
-            }}
-            >
-              {({ setFieldValue, isSubmitting, handleSubmit }) => (
+          <Col sm={4}>
             
+          </Col>  
+          <Col>
+         <Formik
+          initialValues={post}
+          enableReinitialize
+          validationSchema={Yup.object({
+            nombre: Yup.string().required("un nombre es requerido"),
+            detalle: Yup.string().required("Description es requerido"),
+            direccion: Yup.string().required("direccion es requerido"),
+            altura: Yup.string().required("direccion es requerido"),
+
+
+
+            // image: Yup.mixed().required("The image required"),
+          })}
+          onSubmit={async (values, actions) => {
+            if (params.id) {
+              await updatePost(params.id, values);
+            } else {
+              await createPost(values);
+            }
+            actions.resetForm();
+            actions.setSubmitting(false);
+            navigate("/");
+          }}
+        >
+          {({ setFieldValue, isSubmitting, handleSubmit }) => (
             <Form onSubmit={handleSubmit}>
+              
+
               <div className="static-modal">
-                <Modal.Dialog>
-                  <Row>
-                    <Col>
-                      <Modal.Body>
-                        <label htmlFor="description"> Denominacion </label>
-                      </Modal.Body>
-                    </Col>
-                    </Row>  
-                    <Row> 
-                <Col>  
-                  <Modal.Body>
-                    <h6>Ingrese un titulo</h6>
-                      <Field
-                        placeholder="nombre"
-                        name="nombre"
-                      />
-                      <ErrorMessage
-                        component="p"
-                        name="nombre"
-                        className="text-red-400 text-sm"
-                      />
-                  </Modal.Body>
-                </Col>
+            <Modal.Dialog>
 
-                <Col>  
-                <Modal.Body>
-                    <h6>Ingrese Usuario</h6>
-                      <select>
-                        <Field
-                          component="select"
-                          name="usuario"                  
-                          className="text-red-400 text-sm"
-                          value="user.username"
-                        />    
-                      {users.map(user => (
-                        <option key={user._id} value={user.id}>{user.username}</option>
-                        ))}
-                      </select>                
-                    </Modal.Body>
-                  </Col>
 
-                <Col> 
-                  <Modal.Body>
-                    <h6>Direccion</h6>
-                    <Field
-                      placeholder="direccion"
-                      name="direccion"
-                    />
-                    <ErrorMessage
-                      component="p"
-                      name="direccion"
-                      className="text-red-400 text-sm"
-                    />
-                  </Modal.Body>  
-                </Col>
-                <Col> 
-                    <Modal.Body>
-                      <h6>Altura</h6>
-                    <Field
-                      placeholder="altura"
-                      name="altura"
-                    />
-                    <ErrorMessage
-                      component="p"
-                      name="altura"
-                      className="text-red-400 text-sm"
-                    />
-                    </Modal.Body>   
-                 </Col>
-                 <Col>  
-                  <Modal.Body> 
-                    <h6>Detalle publicacion</h6>
-                    <Field
-                      component="textarea"
-                      name="detalle"
-                      id="detalle"
-                      placeholder="detalle informacion"
-                      rows="3"
-                      cols="60"
-                    />
-                  <ErrorMessage
-                    component="p"
-                    name="detalle"
-                    className="text-red-400 text-sm"
-                  />          
-                  </Modal.Body>
-                 </Col>
+          <Modal.Body>
+                  <label htmlFor="description"> Denominacion </label>
+          </Modal.Body>
 
 
 
-                <Col>
-                  <Modal.Body>
-                    <h6>precio</h6>
-                  <Field
-                    placeholder="precio"
-                    name="precio"
-                  />
-                </Modal.Body>
-                </Col>
-                <Col>
-                  <Modal.Body>
-                    <h6>moneda</h6>
-                  <Field
-                    placeholder="moneda"
-                    name="moneda"
-                  />
-                  </Modal.Body>
-                </Col>      
-                <Col>
-                  <Modal.Body>
-                  <h6>ambientes</h6>
-                  <Field
-                    placeholder="ambientes"
-                    name="ambientes"
-                  />
-                  </Modal.Body>  
-                </Col>    
-                <Col>
-                  <Modal.Body>
-                  <h6>plantas</h6>
-                  <Field
-                    placeholder="plantas"
-                    name="planta"
-                  />
-                  </Modal.Body>    
-                </Col>   
-                <Col>
-                  <Modal.Body>
-                    <h6>habitaciones</h6>
-                  <Field
-                    placeholder="habitaciones"
-                    name="habitaciones"
-                  />
-                  </Modal.Body>
-                </Col>         
-                <Col>
-                  <Modal.Body>
-                    <h6>banos</h6>
-                  <Field
-                    placeholder="banos"
-                    name="banos"
-                  />
-                  </Modal.Body>      
-                </Col>        
-                <Col>
-                  <Modal.Body>
-                    <h6>m2 construidos</h6>
-                  <Field
-                    placeholder="metrosconstruidos"
-                    name="metrosconstruidos"
-                  />
-                  </Modal.Body>
-                </Col>        
-                <Col>
-                  <Modal.Body>
-                    <h6>m2 terreno</h6>
-                  <Field
-                    placeholder="metrosterreno"
-                    name="metrosterreno"
-                  />
-                  </Modal.Body>
-                </Col>
-                <Col>
-                  <Modal.Body>
-                    <h6>tipo de operacion</h6>
-                  <Field
-                    placeholder="tipo"
-                    name="tipo"
-                  />
-                </Modal.Body>
-                </Col>          
-              </Row>    
+          <Modal.Body>
+              <h6>Ingrese un titulo</h6>
+              <Field
+                placeholder="nombre"
+                name="nombre"
+                />
+              <ErrorMessage
+                component="p"
+                name="nombre"
+                className="text-red-400 text-sm"
+                />
+          </Modal.Body>
+
+          <Modal.Body>
+              <h6>Ingrese Usuario</h6>
+              <select>
+                <Field
+                  
+                  component="select"
+                  name="usuario"                  
+                  className="text-red-400 text-sm"
+                  />    
+                   {users.map(user => (
+                      <option key={user._id} value={user.username}>{user.username}</option>
+                    ) )}
+                </select> 
+               
+            </Modal.Body>
+
+
+
+
+
+
+
+
+          <Modal.Body>
+              <h6>Direccion</h6>
+              <Field
+                placeholder="direccion"
+                name="direccion"
+                />
+              <ErrorMessage
+                component="p"
+                name="direccion"
+                className="text-red-400 text-sm"
+                />
+          </Modal.Body>  
+          <Modal.Body>
+              <h6>altura</h6>
+              <Field
+                placeholder="altura"
+                name="altura"
+                />
+              <ErrorMessage
+                component="p"
+                name="altura"
+                className="text-red-400 text-sm"
+                />
+          </Modal.Body>  
+          <Modal.Body>
+              <h6>barrio</h6>
+              <Field
+                placeholder="barrio"
+                name="barrio"
+                />
+              <ErrorMessage
+                component="p"
+                name="barrio"
+                className="text-red-400 text-sm"
+                />
+          </Modal.Body>  
+
+           <Modal.Body>
+          <h6>Ingrese un detalle</h6>
+            <label htmlFor="description"></label>      
+          </Modal.Body>            
+          <Modal.Body> 
+            <Field
+              component="textarea"
+              name="detalle"
+              id="detalle"
+              placeholder="detalle informacion"
+              rows="3"
+            />
+            <ErrorMessage
+              component="p"
+              name="detalle"
+              className="text-red-400 text-sm"
+            />          
+          </Modal.Body>   
+          <Modal.Body>
+              <h6>ambientes</h6>
+              <Field
+                placeholder="ambientes"
+                name="ambientes"
+                />
+          </Modal.Body>             
+          <Modal.Body>
+              <h6>precio</h6>
+              <Field
+                placeholder="precio"
+                name="precio"
+                />
+          </Modal.Body>
+          <Modal.Body>
+              <h6>moneda</h6>
+              <Field
+                placeholder="moneda"
+                name="moneda"
+                />
+          </Modal.Body>
+          <Modal.Body>
+              <h6>plantas</h6>
+              <Field
+                placeholder="plantas"
+                name="planta"
+                />
+          </Modal.Body>
+          <Modal.Body>
+              <h6>habitaciones</h6>
+              <Field
+                placeholder="habitaciones"
+                name="habitaciones"
+                />
+          </Modal.Body>
+          <Modal.Body>
+              <h6>banos</h6>
+              <Field
+                placeholder="banos"
+                name="banos"
+                />
+          </Modal.Body>
+          <Modal.Body>
+              <h6>m2 construidos</h6>
+              <Field
+                placeholder="metrosconstruidos"
+                name="metrosconstruidos"
+                />
+          </Modal.Body>
+          <Modal.Body>
+              <h6>m2 terreno</h6>
+              <Field
+                placeholder="metrosterreno"
+                name="metrosterreno"
+                />
+          </Modal.Body>
+          <Modal.Body>
+              <h6>tipo de operacion</h6>
+              <Field
+                placeholder="tipo"
+                name="tipo"
+                />
+          </Modal.Body>
+          
+          
+
+          
+          
+          
+          
           <Modal.Body>
             <label htmlFor="image">Primera imagen</label>
           </Modal.Body>            
@@ -311,6 +315,15 @@ export function PostForm() {
               component="p"
               name="imagec"/>     
           </Modal.Body>
+
+
+
+
+
+
+
+
+
         <Modal.Footer>
           <Button 
             bsStyle="primary"

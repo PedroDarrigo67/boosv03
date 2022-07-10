@@ -32,7 +32,7 @@ export function CompoHomePage() {
           </Row>
           <Row>
             <Card body  className='text-center bg-dark text-white my-1 py-1'>
-              Presione la tarjeta de la propiedad que desea ver con mas detalle</Card>;
+              Presione la tarjeta de la propiedad que desea ver con mas detalle</Card>
           </Row>
 
             <div>  

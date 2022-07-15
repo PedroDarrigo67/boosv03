@@ -16,20 +16,18 @@ export function NavLogin() {
             <Navbar.Collapse id="responsive-navbar-nav">
                <Nav className="me-auto">
                 <Row> 
-                  <Col sm={4}>            
+                  <Col sm={6}>            
                     <Link to="/new">NuevoPost</Link>
                   </Col>
-                  <Col sm={4}>
-                    <Link to="/users">Usuario</Link>
+                  <Col sm={6}>
+                    <Link to="/users">Perfil User</Link>
                     </Col>
-                  <Col sm={4}>
-                <Link to="/users/new">NuevoUser</Link>
-                </Col>
+                                
                 </Row>
               </Nav>              
               <Nav>              
-                <Navbar.Text>
-                  log: {user.name} 
+                <Navbar.Text className="text-muted">
+                  usuario: {user.name} 
                 </Navbar.Text>
                 <Navbar.Text>
                   <LogoutButton/>

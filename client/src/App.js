@@ -5,11 +5,12 @@ import { UserProvider } from "./context/userContext";
 import './App.css';
 
 
-import { HomePage, NotFoundPage, PostForm, HomePart} from "./pages";
+import { HomePage, NotFoundPage, PostForm, HomePart, Profile, PostModal, PostFormEdit} from "./pages";
 import { UsersPage} from "./pages/user/UsersPage";
 import { UserForm} from "./pages/user/UserForm";
 
-
+// <Route path="/postform/:id" element={<PostFormEdit/>} />
+// <Route path="/posts/:id" element={<HomePart/>} />
 
 function App() {
 
@@ -24,11 +25,14 @@ function App() {
             <Route path="/new" element={<PostForm/>} />
             <Route path="/home" element={<HomePage/>} />
             <Route path="/posts/:id" element={<HomePart/>} />
-            <Route path='/users' element={<UsersPage/>} />
+            <Route path='/users' element={<Profile/>} />
             <Route path='/users/new' element={<UserForm/>} />
+            
+            <Route path='/edit/posts/:id' element={<PostFormEdit/>} />
             
 
             
+                
             
 
             <Route path="*" element={<NotFoundPage/>} />

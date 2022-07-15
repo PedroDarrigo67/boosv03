@@ -2,7 +2,6 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useParams } from "react-router-dom";
 import * as Yup from "yup";
 import { usePosts } from "../../context/postContext";
-
 import { useNavigate } from "react-router-dom";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { useEffect, useState } from "react";
@@ -13,11 +12,10 @@ import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import {NavbarDemo} from '../../components/NavbarDemo/NavbarDemo';
 import {useAuth0} from '@auth0/auth0-react';
-import {MapCarga} from '../../components/map/MapCarga';
 
 
 
-export function PostForm() {
+export function PostFormEdit() {
   
   const { createPost, getPost, updatePost } = usePosts();
   const navigate = useNavigate();
@@ -39,9 +37,7 @@ export function PostForm() {
     tipo: "",
     usuario:"",
     userselect:"",
-    image: null,
-    imagea: null,
-    imagec: null
+    
   });
   const params = useParams();
 
@@ -65,9 +61,7 @@ export function PostForm() {
           metrosterreno: post.metrosterreno,
           tipo: post.tipo,
           usuario: post.usuario,
-          image: post.image,
-          imagea: post.imagea,
-          imagec: post.imagec
+          
         });
       }
     })();
@@ -182,11 +176,7 @@ export function PostForm() {
                 name="barrio"
                 className="text-red-400 text-sm"
                 />
-          </Modal.Body> 
-
-          <Modal.Body>
-              <MapCarga/>
-           </Modal.Body>
+          </Modal.Body>  
 
            <Modal.Body>
           <h6>Ingrese un detalle</h6>
@@ -268,64 +258,7 @@ export function PostForm() {
                 name="tipo"
                 />
           </Modal.Body>
-              
-          
-          
-          <Modal.Body>
-            <label htmlFor="image">Primera imagen</label>
-          </Modal.Body>            
-          <Modal.Body>
-            <input
-              type="file"
-              name="image"
-              onChange={(e) => setFieldValue("image", e.target.files[0])}/>
-            <ErrorMessage
-              component="p"
-              name="image"/>     
-          </Modal.Body>
-
-          <Modal.Body>
-            <label htmlFor="imagea">Segunda imagen</label>
-          </Modal.Body>            
-          <Modal.Body>
-            <input
-              type="file"
-              name="imagea"
-              onChange={(e) => setFieldValue("imagea", e.target.files[0])}/>
-            <ErrorMessage
-              component="p"
-              name="imagea"/>     
-          </Modal.Body>
-
-          <Modal.Body>
-            <label htmlFor="imagec">Tercera Imagen</label>
-          </Modal.Body>            
-          <Modal.Body>
-            <input
-              type="file"
-              name="imagec"
-              onChange={(e) => setFieldValue("imagec", e.target.files[0])}/>
-            <ErrorMessage
-              component="p"
-              name="imagec"/>     
-          </Modal.Body>
-
-          <Modal.Body>
-          <button onClick={(e) => setFieldValue("usuario", user.name)}>Cargar usuario</button>
-            <Field
-                placeholder="usuario"
-                name="usuario"
-                />
-          </Modal.Body>
-          
             
-            
-
-
-
-
-
-
         <Modal.Footer>
           <Button 
             bsStyle="primary"

@@ -37,10 +37,12 @@ export function CompoHomePage() {
 
             <div>  
               
-                {posts.map((post) => (
-                <CardGroup>
-                  <PostCard key={post._id} post={post} />
-                </CardGroup> ))}
+              {posts.map((post) => (
+                
+                  
+                    <PostCard  key={post._id} post={post} />
+                      
+                  ))}
 
             
             

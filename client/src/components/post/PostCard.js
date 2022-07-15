@@ -1,23 +1,25 @@
 import { useNavigate } from "react-router-dom";
 import Card from 'react-bootstrap/Card';
 import {Container, Row, Col} from 'react-bootstrap';
+import {Link} from 'react-router-dom';
+
 
 export function PostCard({ post }) {
   const navigate = useNavigate();
   return (
     <div>
-    <div className="px-1 my-1 shadow p-1 mb-1 bg-white rounded" onClick={() => navigate(`posts/${post._id}`)}>
+    <div className="px-1 my-1 shadow p-1 mb-1 bg-white rounded" onClick={() => navigate(`/posts/${post._id}`)}>
       <Card style={{ width: '70rem' }} className='text-center ' >
         <Card.Body>
           <Container>  
             <Row>
               <Col sm={4}>
                 <Card.Title>
-                  <h4>{post.nombre}</h4>
+                  <h5 className="p-1 mb-2 bg-light text-dark text-left">{post.nombre}</h5>
                 </Card.Title>
               </Col>
               <Col sm={6}>
-                <Card.Subtitle className="mb-2 text-muted">{post.detalle}</Card.Subtitle></Col>
+                <Card.Subtitle className="mb-2 text-muted text-left">{post.detalle}</Card.Subtitle></Col>
               <Col sm={6}></Col>
               <Col sm={3}>
                 <Card.Title>
@@ -74,11 +76,17 @@ export function PostCard({ post }) {
                 {post.imagec && <img src={post.imagec.url} alt={post.title} className="w-100 p-0 rounded-3"/>}
               </Col>
             </Row>
+            <Row>
+              
+            </Row>
             
             
             <Row>
-              <Col sm={8}>{post.usuario}</Col>
-              <Col sm={4}>cod. publicacion: {post._id}</Col>
+              <Col sm={4} className="p-1 mb-2 bg-secondary text-white">
+                usuario: {post.usuario}
+              </Col>
+              <Col sm={4}></Col>
+              <Col sm={4} className="text-black-50">cod. pub.: {post._id}</Col>
             </Row>
           
           

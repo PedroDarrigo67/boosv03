@@ -1,20 +1,17 @@
 import Image from 'react-bootstrap/Image';
 import Card from 'react-bootstrap/Card';
-import CardGroup from 'react-bootstrap/CardGroup';
 import {Container, Row, Col } from 'react-bootstrap';
-import { PostCard} from './post/PostCard';
-import Image1 from '../image/cordoba.jpg'
-import { usePosts } from "../context/postContext";
+import { PostCardven} from '../post/PostCardven';
+import Image1 from '../../image/vendida.png'
+import { usePosts } from "../../context/postContext";
 
-
-export function CompoHomePage() {
+export function CompoHomeVen() {
   const { posts } = usePosts();
   return (
-    <div> 
-    
+    <div>     
     <Container>
           <Row className="px-4 my-5">
-            <Col sm={6}>   
+            <Col sm={4}>   
               <Image 
                 src={Image1}
                 responsive 
@@ -23,10 +20,7 @@ export function CompoHomePage() {
             </Col>
               <Col sm={5}>
               <h1 className="font-weigh-light">InmoProf</h1>
-              <p className="mt-4"> Lorem ipsum dolor sit amet consectetur adipiscing 
-                elit senectus, tempor massa mattis tristique orci cras 
-                lectus penatibus, sed aliquam id per eleifend interdum 
-                dapibus. Commodo convallis nullam per diam, mi etiam nisl. 
+              <p className="mt-4"> propiedades vendidas/alquiladas. 
               </p>  
             </Col>
           </Row>
@@ -39,8 +33,8 @@ export function CompoHomePage() {
               
               {posts.map((post) => (
                 
-                  
-                    <PostCard  key={post._id} post={post} />
+                <PostCardven  key={post._id} post={post} />
+                    
                       
                   ))}
 

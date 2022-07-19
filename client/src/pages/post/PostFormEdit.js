@@ -37,6 +37,7 @@ export function PostFormEdit() {
     tipo: "",
     usuario:"",
     userselect:"",
+    habilitada:""
     
   });
   const params = useParams();
@@ -61,6 +62,7 @@ export function PostFormEdit() {
           metrosterreno: post.metrosterreno,
           tipo: post.tipo,
           usuario: post.usuario,
+          habilitada: post.habilitada,
           
         });
       }
@@ -116,6 +118,13 @@ export function PostFormEdit() {
           <Modal.Body>
                   <label htmlFor="description"> Denominacion </label>
           </Modal.Body>
+
+          <Modal.Body>
+              <h6>HABILITAR</h6>
+              <Field
+                placeholder="habilitada"
+                name="habilitada"
+                /></Modal.Body>
 
 
 

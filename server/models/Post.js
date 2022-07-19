@@ -10,7 +10,7 @@ const postSchema = new mongoose.Schema(
         ambientes: { type: String, trim: true },
         precio: { type: Number  },
         moneda: { type: String },
-        habilitada: {  type: Boolean, default: true },
+        habilitada: {  type: String, default: "pre" },
         plantas: { type: String, trim: true },
         habitaciones: {type: String, trim: true},
         banos: { type: String, trim: true },

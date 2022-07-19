@@ -1,9 +1,9 @@
 import {Container, Row, Col } from 'react-bootstrap';
-import {NavbarDemo} from '../components/NavbarDemo/NavbarDemo';
+import {NavbarDemo} from '../../components/NavbarDemo/NavbarDemo';
 import {useAuth0} from '@auth0/auth0-react';
-import { CompoHomePage} from "../components/CompoHomePage";
+import { CompoHomePage} from "../../components/CompoHome/CompoHomePage";
 import Image from 'react-bootstrap/Image';
-import Image1 from '../image/cordoba.jpg'
+import Image1 from '../../image/cordoba.jpg'
 
 export function HomePage() {
    const { isAuthenticated, isLoading } = useAuth0();

@@ -1,12 +1,12 @@
-import { usePosts } from "../context/postContext";
+import { usePosts } from "../../context/postContext";
 import { useParams } from "react-router-dom";
 import {Container, Row, Col, Card} from 'react-bootstrap';
-import {NavbarDemo} from '../components/NavbarDemo/NavbarDemo';
-import { Map } from '../components/map/Map';
+import {NavbarDemo} from '../../components/NavbarDemo/NavbarDemo';
+import { Map } from '../../components/map/Map';
 import {Link} from 'react-router-dom';
 import { useAuth0 } from "@auth0/auth0-react";
 
-export function HomePart() {
+export function HomePartpre() {
   const { posts } = usePosts()
   const params = useParams();
   const { user } = useAuth0();
@@ -107,8 +107,7 @@ export function HomePart() {
                 <Row>
                   <Col clasName="text-secondary" sm={2}>{post.usuario}</Col>
                   
-                  {post.usuario===user.name && (<Link to={`/edit/posts/${post._id}`} 
-                    className="p-1 mb-2 bg-secondary text-white"> Edit</Link>)}
+                  <Link to={`/edit/posts/${post._id}`} className="p-1 mb-2 bg-secondary text-white"> Edit</Link>
 
                   
                                 

@@ -9,11 +9,10 @@ export function PostCardven({ post }) {
   return (
     <div>
       {(post.habilitada==="ven") && <div>
-        <div>PostCardven</div>
       <div className="px-1 my-1 shadow p-1 mb-1 bg-white rounded" onClick={() => navigate(`/posts/${post._id}`)}>
       <Card style={{ width: '70rem' }} className='text-center ' >
         <Card.Body>
-          <div>PostCardven</div>
+          
           <Container>  
             <Row>
               <Col sm={4}>
@@ -23,7 +22,7 @@ export function PostCardven({ post }) {
               </Col>
               <Col sm={6}>
                 <Card.Subtitle className="mb-2 text-muted text-left">{post.detalle}</Card.Subtitle></Col>
-              <Col sm={2}>{post.habilitada}</Col>
+              <Col sm={2}>  </Col>
               <Col sm={3}>                
               </Col>
             </Row>            

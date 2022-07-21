@@ -10,7 +10,6 @@ export function CompoHomePre() {
   const { posts } = usePosts();
   return (
     <div> 
-      <div>PostCardpre</div>
        <Container>
           <Row className="px-4 my-5">
             <Col sm={4}>   

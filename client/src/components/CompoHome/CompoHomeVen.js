@@ -9,7 +9,7 @@ export function CompoHomeVen() {
   const { posts } = usePosts();
   return (
     <div>  
-       <div>CompoHomeVen</div>
+       
     <Container>
           <Row className="px-4 my-5">
             <Col sm={4}>   

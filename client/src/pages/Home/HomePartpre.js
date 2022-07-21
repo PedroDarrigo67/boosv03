@@ -5,6 +5,7 @@ import {NavbarDemo} from '../../components/NavbarDemo/NavbarDemo';
 import { Map } from '../../components/map/Map';
 import {Link} from 'react-router-dom';
 import { useAuth0 } from "@auth0/auth0-react";
+import '.HomePart.css';
 
 export function HomePartpre() {
   const { posts } = usePosts()

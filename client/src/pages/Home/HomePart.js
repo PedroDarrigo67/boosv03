@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import { usePosts } from "../../context/postContext";
 import { useParams } from "react-router-dom";
 import {Container, Row, Col, Card} from 'react-bootstrap';
@@ -6,78 +7,46 @@ import { Map } from '../../components/map/Map';
 import {Link} from 'react-router-dom';
 import { useAuth0 } from "@auth0/auth0-react";
 import Carousel from 'react-bootstrap/Carousel';
+import ListGroup from 'react-bootstrap/ListGroup';
+import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Button';
+
+
 
 export function HomePart() {
   const { posts } = usePosts()
   const params = useParams();
   const { user } = useAuth0();
+  const [fullscreen] = useState(true);
+  const [show, setShow] = useState(false)  
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  
 
   return(
-    <div>
+    <div className="background: primary">
      <NavbarDemo/> 
-      <Card style={{ width: '90rem' }}>
+      <Card 
+        style={{ width: '80rem' }} >
         {posts.map(post => (<div key={params.id}>
             {post._id===params.id ? <div>
-                <Container>
-                <Row>
-                  <Col sm={7}>
+              <Card.Body>
+                <Card.Title>{post.nombre}</Card.Title>
+                  <Card.Text>
                     <Row>
-                      <Col sm={8}>
-                        <h4 className="text-primary">{post.nombre}</h4>
-                      </Col>
-                      
-                    </Row>
-                    <Row>
-                      <Col sm={8}>
-                        <p>{post.detalle}</p>
-                      </Col>
-                      
-                    </Row>
-                    <Row>
-                      <Col sm={6}>
-                        <h6>{post.description}</h6>
-                      </Col>
-                    </Row>  
-                    <Row>
-                    <Col><Map/></Col> 
-                        
-                      
-                    </Row>
-                  </Col>
+                      <Col>{post.detalle}</Col>
+                      <Col sm={4}>
 
-                  <Col sm={5}>
-                      <Row>
-                        <Col sm={4}>
-                          <h3 className="p-1 mb-2 bg-success text-white">{post.tipo}</h3>
-                        </Col>
-                        <Col sm={4}>
-                        <h5>{post.moneda} {post.precio} </h5>
-                        </Col>
-                      <Row>
-                          Amb.:{post.ambientes} pla.:{post.plantas} Hab.:{post.habitaciones}
-                        </Row>
-                        <Row>
-                          Ban.:{post.banos} m2 cont.:{post.metrosconstruidos} m2 terr.:{post.metrosterreno}
-                          <br/>
-                        </Row>
-                        <Row>
-                          <br/>
-                        </Row>
-                      </Row>
-                      
-                      <Row>
-                      <Col>
-
-                          <Carousel>
-
+                        <Carousel>
                           {(post.image) && (
-                            <Carousel.Item>
-                              <img
-                                className="d-block w-max"
-                                src={post.image.url}
-                                alt="First slide"
-                                />                              
-                            </Carousel.Item>
+                          <Carousel.Item>
+                            <img
+                              className="d-block w-max"
+                              src={post.image.url}
+                              alt="First slide"
+                              />                              
+                          </Carousel.Item>
                           )}
                           {(post.imagea) && (
                             <Carousel.Item>
@@ -97,62 +66,108 @@ export function HomePart() {
                               />        
                             </Carousel.Item>
                             )}
-                          </Carousel>                                                  
-                      </Col>  
-                    <Row><br /></Row>
-                    <Row>
-                      <Col sm={4} my={1} py={1}>
-                        <div className="bg-image hover-zoom">
-                         {post.imageb && <img src={post.imageb.url} alt={post.title} className="w-100 p-0 rounded-3"/>}
-                         </div>
-                      </Col>
-                      <Col sm={4} my={1} py={1}>
-                        <div className="bg-image hover-zoom">
-                         {post.imaged && <img src={post.imaged.url} alt={post.title} className="w-100 p-0 rounded-3"/>}
-                         </div>
-                      </Col>
-                      <Col sm={4} my={1} py={1}>
-                        <div className="bg-image hover-zoom">
-                         {post.imagee && <img src={post.imagee.url} alt={post.title} className="w-100 p-0 rounded-3"/>}
-                         </div>
-                      </Col>
+                          </Carousel>
+                        </Col>
+                        
                     </Row>
 
+
+
+                    
+                  </Card.Text>
+                </Card.Body>
+                <ListGroup className="list-group-flush">
+                  <ListGroup.Item></ListGroup.Item>
+                  <ListGroup.Item>
+                    <Container fluid>
+                      <Row>
+                        <Col sm={1}><h5>{post.tipo}</h5></Col>
+                        <Col sm={1}>{post.moneda}</Col>
+                        <Col sm={1}> {post.precio}</Col>                        
+                        <Col sm={4}>
+                          <Row>                          
+                                Amb.:{post.ambientes} pla.:{post.plantas} Hab.:{post.habitaciones}
+                          </Row>
+                          <Row>
+                            Ban.:{post.banos} m2 cont.:{post.metrosconstruidos} m2 terr.:{post.metrosterreno}
+                            <br/>
+                          </Row>
+                        </Col>
+                        <Col sm={1}><Map/></Col>
+                        
                       </Row>
-                  </Col>
+                    </Container>
+                  </ListGroup.Item>
                   
-
-
-
-
-
-
-
-                </Row>
-                <Row>
-                  <Col clasName="text-secondary" sm={2}>{post.usuario}</Col>
-                  
-                  {post.usuario===user.name && (<Link to={`/edit/posts/${post._id}`} 
-                    className="p-1 mb-2 bg-secondary text-white"> Edit</Link>)}
-
-                  
-                                
-                  
-                  <Col sm={6}></Col>
-                      <Col sm={4}>
-                        {post._id}
-                      </Col>
-                </Row>
-                  
-            
-            
-            
-            
-            
-            
-            
+                  <ListGroup.Item>
+                  <Row>
+                    <Col clasName="text-secondary" sm={2}>{post.usuario}</Col>
+                    <Col sm={4}>Codigo publicacion: {post._id}</Col>
+                    <Col sm={2}></Col>
+                    <Col sm={4}>
+                        {post.usuario===user.name && (<Link to={`/edit/posts/${post._id}`} 
+                         className="p-2 mb-4 bg-secondary text-white">Editar publicacion </Link>)}
+                    </Col>
+                  </Row>
+                  </ListGroup.Item>
+                     <Button variant="primary" onClick={handleShow}>
+                        Ver imagenes de la propiedad
+                     </Button>
+                     <Modal
+                       show={show}
+                       onHide={handleClose}
+                       backdrop="static"
+                       keyboard={false}
+                       fullscreen={fullscreen}
+                      > 
+        
+        
+                        <Modal.Header closeButton>
+                           <Modal.Title>Imagenes</Modal.Title>
+                        </Modal.Header> 
+                        <Modal.Body>
+                           <Row>
+                               <Col sm={4}>
+                                  <div>{post.image && <img src={post.image.url} alt={post.title} className="w-100 p-0 rounded-3"/>}</div>
+                               </Col>
+                               <Col sm={4}>
+                                  <div>{post.imagea && <img src={post.imagea.url} alt={post.title} className="w-100 p-0 rounded-3"/>}</div>
+                               </Col>
+                               <Col sm={4}>
+                                  <div>{post.imagec && <img src={post.imagec.url} alt={post.title} className="w-100 p-0 rounded-3"/>}</div>
+                               </Col>
+                               <Col sm={4}>
+                                  <div>{post.imageb && <img src={post.imageb.url} alt={post.title} className="w-100 p-0 rounded-3"/>}</div>
+                               </Col>
+                               <Col sm={4}>
+                                  <div>{post.imaged && <img src={post.imaged.url} alt={post.title} className="w-100 p-0 rounded-3"/>}</div>
+                               </Col>
+                               <Col sm={4}>
+                                  <div>{post.imagee && <img src={post.imagee.url} alt={post.title} className="w-100 p-0 rounded-3"/>}</div>
+                               </Col>
+                               <Col sm={4}>
+                                  <div>{post.imagef && <img src={post.imagef.url} alt={post.title} className="w-100 p-0 rounded-3"/>}</div>
+                               </Col>
+                               <Col sm={4}>
+                                  <div>{post.imageg && <img src={post.imageg.url} alt={post.title} className="w-100 p-0 rounded-3"/>}</div>
+                               </Col>
+                               <Col sm={4}>
+                                  <div>{post.imageh && <img src={post.imageh.url} alt={post.title} className="w-100 p-0 rounded-3"/>}</div>
+                               </Col>
+                           </Row>
+                           
               
-            </Container>
+            </Modal.Body>
+
+
+            </Modal>
+                     
+                  </ListGroup>
+                  
+                 
+
+                
+                
             
             </div>:<p></p>}</div>
           ))}

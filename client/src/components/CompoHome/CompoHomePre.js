@@ -1,15 +1,16 @@
 import Image from 'react-bootstrap/Image';
 import Card from 'react-bootstrap/Card';
 import {Container, Row, Col } from 'react-bootstrap';
-import { PostCardpre} from '../post/PostCardpre';
+import { PostCardpre } from '../Card/PostCardpre';
 import Image1 from '../../image/Administrador.png'
 import { usePosts } from "../../context/postContext";
-import {Link} from 'react-router-dom';
+
 
 export function CompoHomePre() {
   const { posts } = usePosts();
   return (
     <div> 
+      <div>PostCardpre</div>
        <Container>
           <Row className="px-4 my-5">
             <Col sm={4}>   

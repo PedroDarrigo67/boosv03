@@ -2,7 +2,6 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useParams } from "react-router-dom";
 import * as Yup from "yup";
 import { usePosts } from "../../context/postContext";
-
 import { useNavigate } from "react-router-dom";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { useEffect, useState } from "react";
@@ -14,8 +13,6 @@ import Button from 'react-bootstrap/Button';
 import {NavbarDemo} from '../../components/NavbarDemo/NavbarDemo';
 import {useAuth0} from '@auth0/auth0-react';
 import {MapCarga} from '../../components/map/MapCarga';
-
-
 
 export function PostForm() {
   
@@ -31,9 +28,11 @@ export function PostForm() {
     ambientes:"",
     precio: null,
     moneda: "",
+    expensas:null,
     plantas: "",
     habitaciones: "",
     banos: "",
+    antiguedad: '',
     metrosconstruidos: "",
     metrosterreno: "",
     tipo: "",
@@ -41,7 +40,8 @@ export function PostForm() {
     userselect:"",
     image: null,
     imagea: null,
-    imagec: null
+    imagec: null, 
+       
   });
   const params = useParams();
 
@@ -58,22 +58,23 @@ export function PostForm() {
           ambientes:post.ambientes,
           precio: post.precio,
           moneda: post.moneda,
+          expensas: post.expensas,
           plantas: post.plantas,
           habitaciones: post.habitaciones,
           banos: post.banos,
+          antiguedad: post.antiguedad,
           metrosconstruidos: post.metrosconstruidos,
           metrosterreno: post.metrosterreno,
           tipo: post.tipo,
           usuario: post.usuario,
           image: post.image,
           imagea: post.imagea,
-          imagec: post.imagec
+          imagec: post.imagec,
+          
         });
       }
     })();
-  }, [params.id, getPost]);
-  
-  
+  }, [params.id, getPost]); 
 
   return (
      <div>
@@ -89,16 +90,11 @@ export function PostForm() {
           enableReinitialize
           validationSchema={Yup.object({
             nombre: Yup.string().required("un nombre es requerido"),
-            detalle: Yup.string().required("Description es requerido"),
-            direccion: Yup.string().required("direccion es requerido"),
-            altura: Yup.string().required("direccion es requerido"),
-
-
-
+            //detalle: Yup.string().required("Description es requerido"),
+            //direccion: Yup.string().required("direccion es requerido"),
+            //altura: Yup.string().required("direccion es requerido"),
             // image: Yup.mixed().required("The image required"),
-          })}
-
-            
+          })}            
 
           onSubmit={async (values, actions) => {
             if (params.id) {
@@ -113,17 +109,12 @@ export function PostForm() {
         >
           {({ setFieldValue, isSubmitting, handleSubmit }) => (
             <Form onSubmit={handleSubmit}>
-              
-
               <div className="static-modal">
             <Modal.Dialog>
-
 
           <Modal.Body>
                   <label htmlFor="description"> Denominacion </label>
           </Modal.Body>
-
-
 
           <Modal.Body>
               <h6>Ingrese un titulo</h6>
@@ -137,15 +128,6 @@ export function PostForm() {
                 className="text-red-400 text-sm"
                 />
           </Modal.Body>
-            
-          
-
-
-
-
-
-
-
 
           <Modal.Body>
               <h6>Direccion</h6>
@@ -204,14 +186,7 @@ export function PostForm() {
               name="detalle"
               className="text-red-400 text-sm"
             />          
-          </Modal.Body>   
-          <Modal.Body>
-              <h6>ambientes</h6>
-              <Field
-                placeholder="ambientes"
-                name="ambientes"
-                />
-          </Modal.Body>             
+          </Modal.Body>                       
           <Modal.Body>
               <h6>precio</h6>
               <Field
@@ -226,6 +201,20 @@ export function PostForm() {
                 name="moneda"
                 />
           </Modal.Body>
+          <Modal.Body>
+              <h6>expensas</h6>
+              <Field
+                placeholder="expensas"
+                name="expensas"
+                />
+          </Modal.Body>   
+          <Modal.Body>
+              <h6>ambientes</h6>
+              <Field
+                placeholder="ambientes"
+                name="ambientes"
+                />
+          </Modal.Body>   
           <Modal.Body>
               <h6>plantas</h6>
               <Field
@@ -248,6 +237,13 @@ export function PostForm() {
                 />
           </Modal.Body>
           <Modal.Body>
+              <h6>antiguedad</h6>
+              <Field
+                placeholder="antiguedad"
+                name="antiguedad"
+                />
+          </Modal.Body>  
+          <Modal.Body>
               <h6>m2 construidos</h6>
               <Field
                 placeholder="metrosconstruidos"
@@ -267,14 +263,9 @@ export function PostForm() {
                 placeholder="tipo"
                 name="tipo"
                 />
-          </Modal.Body>
-              
-          
-          
+          </Modal.Body>                    
           <Modal.Body>
-            <label htmlFor="image">Primera imagen</label>
-          </Modal.Body>            
-          <Modal.Body>
+            <div>1 Imagen</div> 
             <input
               type="file"
               name="image"
@@ -282,12 +273,9 @@ export function PostForm() {
             <ErrorMessage
               component="p"
               name="image"/>     
-          </Modal.Body>
-
+          </Modal.Body>                   
           <Modal.Body>
-            <label htmlFor="imagea">Segunda imagen</label>
-          </Modal.Body>            
-          <Modal.Body>
+            <div>2 Imagen</div>  
             <input
               type="file"
               name="imagea"
@@ -295,12 +283,10 @@ export function PostForm() {
             <ErrorMessage
               component="p"
               name="imagea"/>     
-          </Modal.Body>
-
+          </Modal.Body>                    
+          
           <Modal.Body>
-            <label htmlFor="imagec">Tercera Imagen</label>
-          </Modal.Body>            
-          <Modal.Body>
+            <div>3 Imagen</div>
             <input
               type="file"
               name="imagec"
@@ -308,8 +294,7 @@ export function PostForm() {
             <ErrorMessage
               component="p"
               name="imagec"/>     
-          </Modal.Body>
-
+          </Modal.Body>         
           <Modal.Body>
           <button onClick={(e) => setFieldValue("usuario", user.name)}>Cargar usuario</button>
             <Field
@@ -317,15 +302,6 @@ export function PostForm() {
                 name="usuario"
                 />
           </Modal.Body>
-          
-            
-            
-
-
-
-
-
-
         <Modal.Footer>
           <Button 
             bsStyle="primary"

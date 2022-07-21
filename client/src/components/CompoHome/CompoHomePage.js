@@ -1,7 +1,7 @@
 import Image from 'react-bootstrap/Image';
 import Card from 'react-bootstrap/Card';
 import {Container, Row, Col } from 'react-bootstrap';
-import { PostCard} from '../post/PostCard';
+import { PostCard} from '../Card/PostCard';
 import Image1 from '../../image/cordoba.jpg'
 import { usePosts } from "../../context/postContext";
 import {Link} from 'react-router-dom';

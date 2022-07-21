@@ -37,7 +37,8 @@ export function PostFormEdit() {
     tipo: "",
     usuario:"",
     userselect:"",
-    habilitada:""
+    habilitada:"",
+    imageb: null, 
     
   });
   const params = useParams();
@@ -63,6 +64,7 @@ export function PostFormEdit() {
           tipo: post.tipo,
           usuario: post.usuario,
           habilitada: post.habilitada,
+          imaged: post.imaged,
           
         });
       }
@@ -74,6 +76,7 @@ export function PostFormEdit() {
   return (
      <div>
      <NavbarDemo/>
+      <div>PostForEdit</div>
       <Container>
         <Row>
           <Col sm={4}>
@@ -85,9 +88,9 @@ export function PostFormEdit() {
           enableReinitialize
           validationSchema={Yup.object({
             nombre: Yup.string().required("un nombre es requerido"),
-            detalle: Yup.string().required("Description es requerido"),
-            direccion: Yup.string().required("direccion es requerido"),
-            altura: Yup.string().required("direccion es requerido"),
+            //detalle: Yup.string().required("Description es requerido"),
+            //direccion: Yup.string().required("direccion es requerido"),
+            //altura: Yup.string().required("direccion es requerido"),
 
 
 
@@ -118,6 +121,8 @@ export function PostFormEdit() {
           <Modal.Body>
                   <label htmlFor="description"> Denominacion </label>
           </Modal.Body>
+
+
 
           <Modal.Body>
               <h6>HABILITAR</h6>
@@ -266,6 +271,16 @@ export function PostFormEdit() {
                 placeholder="tipo"
                 name="tipo"
                 />
+          </Modal.Body>
+          <Modal.Body>
+            <div>3 Imagen</div>
+            <input
+              type="file"
+              name="imaged"
+              onChange={(e) => setFieldValue("imaged", e.target.files[0])}/>
+            <ErrorMessage
+              component="p"
+              name="imaged"/>     
           </Modal.Body>
             
         <Modal.Footer>

@@ -17,10 +17,17 @@ const postSchema = new mongoose.Schema(
         metrosconstruidos: { type: String, trim: true},
         metrosterreno: { type: String, trim: true },
         tipo: { type: String, trim: true },
+        expensas: { type: Number  },
+        antiguedad: { type: String, trim: true },        
         image:{ url: String, public_id: String}, 
-        imagea:{ url: String, public_id: String},
-         
-        imagec:{ url: String, public_id: String}, 
+        imagea:{ url: String, public_id: String},     
+        imageb:{ url: String, public_id: String},    
+        imagec:{ url: String, public_id: String},
+        imaged:{ url: String, public_id: String},         
+        imagee:{ url: String, public_id: String}, 
+        imagef:{ url: String, public_id: String},
+        imageg:{ url: String, public_id: String},         
+        imageh:{ url: String, public_id: String},
         usuario :{ type: String, trim: true},  
         date: { type: Date, default: Date.now}       
     }, {

@@ -14,9 +14,11 @@ export const getPosts = async (req, res) => {
 
 export const createPost = async (req, res) => {
     try {
-      const { nombre, detalle, direccion, altura, barrio, ambientes, precio, moneda, habilitada, plantas, 
-        habitaciones, banos, metrosconstruidos, metrosterreno, tipo, usuario} = req.body; 
-        let image, imagea, imagec;
+      const { nombre, detalle, direccion, altura, barrio, ambientes, precio, 
+        moneda, habilitada, plantas, habitaciones, banos, metrosconstruidos, metrosterreno, 
+        tipo, usuario, expensas, antiguedad} = req.body; 
+        let image, imagea, imageb, imagec, imaged, imagee, imagef, 
+        imageg, imageh
 
         if (req.files.image) {
             const result = await uploadImage(req.files.image.tempFilePath) 
@@ -36,6 +38,14 @@ export const createPost = async (req, res) => {
             }          
         }
 
+        if (req.files.imageb) {
+            const result = await uploadImage(req.files.imagec.tempFilePath) 
+            await fs.remove(req.files.imagec.tempFilePath)
+            imagec = {
+                url: result.secure_url,
+                public_id: result.public_id
+            }          
+        }
        
 
         if (req.files.imagec) {
@@ -46,11 +56,58 @@ export const createPost = async (req, res) => {
                 public_id: result.public_id
             }          
         }
+
+        if (req.files.imaged) {
+            const result = await uploadImage(req.files.imagec.tempFilePath) 
+            await fs.remove(req.files.imagec.tempFilePath)
+            imagec = {
+                url: result.secure_url,
+                public_id: result.public_id
+            }          
+        }
+
+        if (req.files.imagee) {
+            const result = await uploadImage(req.files.imagec.tempFilePath) 
+            await fs.remove(req.files.imagec.tempFilePath)
+            imagec = {
+                url: result.secure_url,
+                public_id: result.public_id
+            }          
+        }
+
+        if (req.files.imagef) {
+            const result = await uploadImage(req.files.imagec.tempFilePath) 
+            await fs.remove(req.files.imagec.tempFilePath)
+            imagec = {
+                url: result.secure_url,
+                public_id: result.public_id
+            }          
+        }
+
+        if (req.files.imageg) {
+            const result = await uploadImage(req.files.imagec.tempFilePath) 
+            await fs.remove(req.files.imagec.tempFilePath)
+            imagec = {
+                url: result.secure_url,
+                public_id: result.public_id
+            }          
+        }
+
+        if (req.files.imageh) {
+            const result = await uploadImage(req.files.imagec.tempFilePath) 
+            await fs.remove(req.files.imagec.tempFilePath)
+            imagec = {
+                url: result.secure_url,
+                public_id: result.public_id
+            }          
+        }
         
         
 
-      const newPost = new Post({nombre, detalle, direccion, altura, barrio, ambientes, precio, moneda, habilitada, plantas, habitaciones, banos, 
-        metrosconstruidos, metrosterreno, tipo, usuario, image, imagea, imagec})
+      const newPost = new Post({nombre, detalle, direccion, altura, barrio, ambientes, precio, 
+        moneda, habilitada, plantas, habitaciones, banos, metrosconstruidos, metrosterreno, 
+        tipo, usuario, expensas, antiguedad, image, imagea, imageb, imagec, imaged, imagee, imagef, 
+        imageg, imageh})
 
        
 

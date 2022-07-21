@@ -4,15 +4,16 @@ import {Container, Row, Col} from 'react-bootstrap';
 
 
 
-export function PostCardpre({ post }) {
+export function PostCardven({ post }) {
   const navigate = useNavigate();
   return (
     <div>
-      {(post.habilitada==="pre") && <div>
-        
+      {(post.habilitada==="ven") && <div>
+        <div>PostCardven</div>
       <div className="px-1 my-1 shadow p-1 mb-1 bg-white rounded" onClick={() => navigate(`/posts/${post._id}`)}>
       <Card style={{ width: '70rem' }} className='text-center ' >
         <Card.Body>
+          <div>PostCardven</div>
           <Container>  
             <Row>
               <Col sm={4}>

@@ -1,14 +1,15 @@
 import Image from 'react-bootstrap/Image';
 import Card from 'react-bootstrap/Card';
 import {Container, Row, Col } from 'react-bootstrap';
-import { PostCardven} from '../post/PostCardven';
+import { PostCardven} from '../Card/PostCardven';
 import Image1 from '../../image/vendida.png'
 import { usePosts } from "../../context/postContext";
 
 export function CompoHomeVen() {
   const { posts } = usePosts();
   return (
-    <div>     
+    <div>  
+       <div>CompoHomeVen</div>
     <Container>
           <Row className="px-4 my-5">
             <Col sm={4}>   

@@ -41,7 +41,7 @@ export function PostForm() {
     userselect:"",
     image: null,
     imagea: null,
-    imagec: null
+    imagec: null,    
   });
   const params = useParams();
 
@@ -67,7 +67,8 @@ export function PostForm() {
           usuario: post.usuario,
           image: post.image,
           imagea: post.imagea,
-          imagec: post.imagec
+          imagec: post.imagec,
+          
         });
       }
     })();
@@ -89,9 +90,9 @@ export function PostForm() {
           enableReinitialize
           validationSchema={Yup.object({
             nombre: Yup.string().required("un nombre es requerido"),
-            detalle: Yup.string().required("Description es requerido"),
-            direccion: Yup.string().required("direccion es requerido"),
-            altura: Yup.string().required("direccion es requerido"),
+            //detalle: Yup.string().required("Description es requerido"),
+            //direccion: Yup.string().required("direccion es requerido"),
+            //altura: Yup.string().required("direccion es requerido"),
 
 
 
@@ -271,10 +272,9 @@ export function PostForm() {
               
           
           
+                     
           <Modal.Body>
-            <label htmlFor="image">Primera imagen</label>
-          </Modal.Body>            
-          <Modal.Body>
+            <div>1 Imagen</div> 
             <input
               type="file"
               name="image"
@@ -282,12 +282,9 @@ export function PostForm() {
             <ErrorMessage
               component="p"
               name="image"/>     
-          </Modal.Body>
-
+          </Modal.Body>                   
           <Modal.Body>
-            <label htmlFor="imagea">Segunda imagen</label>
-          </Modal.Body>            
-          <Modal.Body>
+            <div>2 Imagen</div>  
             <input
               type="file"
               name="imagea"
@@ -295,12 +292,10 @@ export function PostForm() {
             <ErrorMessage
               component="p"
               name="imagea"/>     
-          </Modal.Body>
-
+          </Modal.Body>                    
+          
           <Modal.Body>
-            <label htmlFor="imagec">Tercera Imagen</label>
-          </Modal.Body>            
-          <Modal.Body>
+            <div>3 Imagen</div>
             <input
               type="file"
               name="imagec"
@@ -309,7 +304,7 @@ export function PostForm() {
               component="p"
               name="imagec"/>     
           </Modal.Body>
-
+          
           <Modal.Body>
           <button onClick={(e) => setFieldValue("usuario", user.name)}>Cargar usuario</button>
             <Field

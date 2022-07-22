@@ -18,9 +18,6 @@ const points = [
   { id: 2, title: "Second Pond", lat: -31.401196894459815, lng: -64.12224259407479 }
 ];
 
-
-
-
 export function MapCarga() {
   return (
     <div>

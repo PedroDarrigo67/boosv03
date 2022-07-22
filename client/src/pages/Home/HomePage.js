@@ -12,8 +12,6 @@ export function HomePage() {
     return <h1>Is Loading</h1>
   }
 
-
-
   return (
     <div>    
       <NavbarDemo/>
@@ -40,22 +38,19 @@ export function HomePage() {
             </Col>
           </Row>
           </Container>
-
-
-
-
-
-
-
-
-
-
-
-      <footer className='py-5 my-5 bg-dark'>
-        <Container className='px-4'>
-          <p className='text-center text-white'>
-            Copyright &copy; Your website 2022
-          </p>
+      <footer className='py-4 my-4 bg-dark'>
+        <Container >
+          <Row>
+             <Col sm={3}></Col>             
+             <Col sm={4}><p className='text-white'>Copyright &copy; Your website 2022</p></Col>
+             <Col sm={3}></Col>
+             <Col sm={2}><div className='text-white'>informacion:</div></Col>
+          </Row>
+          <Row> 
+             <Col sm={3}></Col> 
+             <Col sm={7}><div className='text-white'>CaPI Argentina</div></Col>
+             <Col sm={2}><div className='text-white'>info.capicba@gmail.com</div></Col>
+          </Row>        
         </Container>
       </footer>
     </div>

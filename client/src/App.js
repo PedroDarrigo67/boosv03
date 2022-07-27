@@ -15,7 +15,7 @@ function App() {
      <div >
        <PostProvider>
         
-            <div>
+            <div className="appback">
             <Routes>
             <Route exact path="/" element={<HomePage/>} />
             

@@ -1,40 +1,46 @@
 import {Container, Row, Col } from 'react-bootstrap';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import {Link} from 'react-router-dom';
 import { useAuth0 } from "@auth0/auth0-react";
 import {LogoutButton} from '../log/LogoutButton';
+import {NavLink} from "react-router-dom";
+import { BsHouseFill } from "react-icons/bs";
+import MainNav from "./main-nav";
 
 export function NavLogin() {
   const { user } = useAuth0();
   return (
     <div>
-      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">        
-        <Container>   
-          <Navbar.Brand href="/">InmoProf</Navbar.Brand>
-            <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-            <Navbar.Collapse id="responsive-navbar-nav">
-               <Nav className="me-auto">
-                <Row> 
-                  <Col sm={6}>            
-                    <Link to="/new">NuevoPost</Link>
-                  </Col>
-                  <Col sm={6}>
-                    <Link to="/users">Perfil User</Link>
-                    </Col>
-                                
-                </Row>
-              </Nav>              
-              <Nav>              
+      <Navbar bg="dark" variant="dark">
+        <Container>
+          <Navbar.Brand href="#home">          
+            <NavLink
+                to="/"
+                exact
+                className="nav-link"
+                activeClassName="router-link-exact-active"
+                text-color="white"
+              ><BsHouseFill/> InmoProf</NavLink>
+          </Navbar.Brand> 
+          <Nav className="me-auto">
+            <MainNav />          
+        </Nav>
+
+      </Container>
+
+
+
+
+
                 <Navbar.Text className="text-muted">
                   usuario: {user.name} 
                 </Navbar.Text>
                 <Navbar.Text>
                   <LogoutButton/>
                 </Navbar.Text>
-                </Nav>
-              </Navbar.Collapse>
-        </Container>
+                
+       
+        
       </Navbar>
     </div>
   )

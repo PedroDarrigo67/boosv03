@@ -25,43 +25,13 @@ export function CompoHomeVen() {
               </p>  
             </Col>
           </Row>
-          <Row>
-            <Card body  className='text-center bg-dark text-white my-1 py-1'>
-              Presione la tarjeta de la propiedad que desea ver con mas detalle</Card>
-          </Row>
-
+          
             <div>  
-              
               {posts.map((post) => (
-                
                 <PostCardven  key={post._id} post={post} />
-                    
-                      
                   ))}
-
-            
-            
-              
-              
-
-            
             </div>
-            
-            
-
-
-
-
-
-
-
-          </Container>  
-
-    
-    
-    
-    
-    
+          </Container>      
      </div>
   )
 }

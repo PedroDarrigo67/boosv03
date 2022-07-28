@@ -11,7 +11,7 @@ export function NavLogin() {
   const { user } = useAuth0();
   return (
     <div>
-      <Navbar bg="dark" variant="dark">
+      <Navbar expand="lg" variant="light" bg="light" fixed="top">
         <Container>
           <Navbar.Brand href="#home">          
             <NavLink
@@ -26,18 +26,18 @@ export function NavLogin() {
             <MainNav />          
         </Nav>
 
-      </Container>
-
-
-
-
-
-                <Navbar.Text className="text-muted">
+        <Navbar.Text className="text-muted">
                   usuario: {user.name} 
                 </Navbar.Text>
                 <Navbar.Text>
                   <LogoutButton/>
                 </Navbar.Text>
+
+
+
+
+      </Container>
+                
                 
        
         

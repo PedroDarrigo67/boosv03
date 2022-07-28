@@ -8,15 +8,11 @@ export function NavbarPie() {
   return (
     <div >  
     
-    <Navbar expand="lg" variant="light" bg="light" fixed="bottom" className="navbar navbar-dark bg-dark">
+    <Navbar expand="lg" variant="light" bg="light" fixed="bottom">
       <Container>
-        <Navbar.Brand href="#">
-          <h6>Realizado por:
-           </h6>
-         </Navbar.Brand>
+        <Navbar.Brand href="#">Realizado por: InmoProf</Navbar.Brand>
       </Container>
     </Navbar>
-    
     
     
     

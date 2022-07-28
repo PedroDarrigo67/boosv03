@@ -11,7 +11,7 @@ export function PostCard({ post }) {
       {(post.habilitada==="pub") && <div>
         
       <div className="px-1 my-1 shadow p-1 mb-1 bg-white rounded" onClick={() => navigate(`/posts/${post._id}`)}>
-      <Card style={{ width: '70rem' }} className='text-center ' >
+      <Card style={{ width: '69rem' }} className='text-center ' >
         <Card.Body>
           <Container>  
             <Row>

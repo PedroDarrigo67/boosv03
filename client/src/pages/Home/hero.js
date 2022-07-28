@@ -48,10 +48,10 @@ const Hero = () => (
               </Row>
               <Row> 
                  <Col sm={3} className="rotate1">
-                    <Image style={{ width: '10rem' }} src={Mendoza} rounded />
+                     <Image style={{ width: '9rem' }} src={SanLuis} rounded />                    
                  </Col>
                  <Col sm={3} >
-                    <Image style={{ width: '9rem' }} src={SanLuis} rounded />
+                     <Image style={{ width: '10rem' }} src={Mendoza} rounded />
                  </Col>
                  <Col sm={3} className="rotate2">
                     <Image style={{ width: '9rem' }} src={Comodoro} rounded />

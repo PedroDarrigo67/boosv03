@@ -6,12 +6,15 @@ import {LogoutButton} from '../log/LogoutButton';
 import {NavLink} from "react-router-dom";
 import { BsHouseFill } from "react-icons/bs";
 import MainNav from "./main-nav";
+import "./Navbar.css";
+
+// expand="lg" variant="light" classname="colot-nav" fixed="top"
 
 export function NavLogin() {
   const { user } = useAuth0();
   return (
     <div>
-      <Navbar expand="lg" variant="light" bg="light" fixed="top">
+      <Navbar variant="light" bg="light" fixed="top">
         <Container>
           <Navbar.Brand href="#home">          
             <NavLink
@@ -32,15 +35,7 @@ export function NavLogin() {
                 <Navbar.Text>
                   <LogoutButton/>
                 </Navbar.Text>
-
-
-
-
       </Container>
-                
-                
-       
-        
       </Navbar>
     </div>
   )

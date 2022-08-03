@@ -16,7 +16,7 @@ export const createPost = async (req, res) => {
     try {
       const { nombre, detalle, direccion, altura, barrio, ambientes, precio, 
         moneda, habilitada, plantas, habitaciones, banos, metrosconstruidos, metrosterreno, 
-        tipo, usuario, expensas, antiguedad} = req.body; 
+        tipo, usuario, expensas, antiguedad, lat, lon} = req.body; 
         let image, imagea, imageb, imagec, imaged, imagee, imagef, 
         imageg, imageh
 
@@ -106,7 +106,7 @@ export const createPost = async (req, res) => {
 
       const newPost = new Post({nombre, detalle, direccion, altura, barrio, ambientes, precio, 
         moneda, habilitada, plantas, habitaciones, banos, metrosconstruidos, metrosterreno, 
-        tipo, usuario, expensas, antiguedad, image, imagea, imageb, imagec, imaged, imagee, imagef, 
+        tipo, usuario, expensas, antiguedad, lat, lon, image, imagea, imageb, imagec, imaged, imagee, imagef, 
         imageg, imageh})
 
        
@@ -146,6 +146,16 @@ export const createPost = async (req, res) => {
     export const getPost = async (req, res) => {
         try{
             const post = await Post.findById(req.params.id);
+        if (!post) return res.sendStatus(404);
+        return res.json(post);
+        } catch(err){
+            return res.satatus(500).json({message: err.message});
+        }
+    };
+
+    export const getPostTipo = async (req, res) => {
+        try{
+            const post = await Post.find(req.params.tipo);
         if (!post) return res.sendStatus(404);
         return res.json(post);
         } catch(err){

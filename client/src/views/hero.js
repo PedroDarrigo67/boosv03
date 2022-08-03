@@ -44,7 +44,7 @@ const Hero = () => (
                  </Col>
                  <Col sm={3}>
                     <Image style={{ width: '8rem' }} src={Buenos} rounded />
-                 </Col>
+                 </Col> 
               </Row>
               <Row> 
                  <Col sm={3} className="rotate1">

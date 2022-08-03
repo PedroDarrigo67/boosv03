@@ -4,12 +4,15 @@ import {Container, Row, Col } from 'react-bootstrap';
 import { PostCardpre } from '../Card/PostCardpre';
 import Image1 from '../../image/Administrador.png'
 import { usePosts } from "../../context/postContext";
+import { NavbarDemo } from "../NavbarDemo/NavbarDemo"
 
 
 export function CompoHomePre() {
   const { posts } = usePosts();
   return (
     <div> 
+      <NavbarDemo/>
+      <br/><br/>
        <Container>
           <Row className="px-4 my-5">
             <Col sm={4}>   

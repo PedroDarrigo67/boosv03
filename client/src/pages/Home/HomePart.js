@@ -3,14 +3,13 @@ import { usePosts } from "../../context/postContext";
 import { useParams } from "react-router-dom";
 import {Container, Row, Col, Card} from 'react-bootstrap';
 import {NavbarDemo} from '../../components/NavbarDemo/NavbarDemo';
-import { Map } from '../../components/map/Map';
 import {Link} from 'react-router-dom';
 import { useAuth0 } from "@auth0/auth0-react";
 import Carousel from 'react-bootstrap/Carousel';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
-
+import {Map} from "../../components/map/Map"
 
 
 export function HomePart() {
@@ -20,13 +19,12 @@ export function HomePart() {
   const [fullscreen] = useState(true);
   const [show, setShow] = useState(false)  
   const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-
-  
+  const handleShow = () => setShow(true);  
 
   return(
     <div className="background: primary">
      <NavbarDemo/> 
+     <br/><br/>
       <Card 
         style={{ width: '80rem' }} >
         {posts.map(post => (<div key={params.id}>
@@ -35,14 +33,27 @@ export function HomePart() {
                 <Card.Title>{post.nombre}</Card.Title>
                   <Card.Text>
                     <Row>
-                      <Col>{post.detalle}</Col>
-                      <Col sm={4}>
-
+                      <Col sm={6}>
+                        <Row>{post.detalle}</Row>
+                        <br/>
+                        <Row> 
+                          <Col sm={4}><h5>{post.direccion}</h5></Col>
+                          <Col sm={2}><h5>{post.altura}</h5></Col>
+                        </Row>
+                        <Row> 
+                          <Col sm={6}><h5>Barrio: {post.barrio}</h5></Col>
+                        </Row>
+                      </Col>  
+                      <Col sm={3}>
+                        <Map/>                       
+                      </Col>                      
+                      <Col sm={3}>
                         <Carousel>
                           {(post.image) && (
                           <Carousel.Item>
                             <img
                               className="d-block w-max"
+                              style={{ width: '18rem' }}
                               src={post.image.url}
                               alt="First slide"
                               />                              
@@ -52,6 +63,7 @@ export function HomePart() {
                             <Carousel.Item>
                               <img
                                 className="d-block w-max"
+                                style={{ width: '18rem' }}
                                 src={post.imagea.url}
                                 alt="Second slide"
                               />        
@@ -61,19 +73,15 @@ export function HomePart() {
                               <Carousel.Item >
                               <img
                                 className="d-block w-max"
+                                style={{ width: '18rem' }}
                                 src={post.imagec.url}
                                 alt="Second slide"
                               />        
                             </Carousel.Item>
                             )}
                           </Carousel>
-                        </Col>
-                        
-                    </Row>
-
-
-
-                    
+                        </Col>                        
+                    </Row>                    
                   </Card.Text>
                 </Card.Body>
                 <ListGroup className="list-group-flush">
@@ -93,12 +101,10 @@ export function HomePart() {
                             <br/>
                           </Row>
                         </Col>
-                        <Col sm={1}><Map/></Col>
-                        
+                        <Col sm={1}></Col>                        
                       </Row>
                     </Container>
-                  </ListGroup.Item>
-                  
+                  </ListGroup.Item>                  
                   <ListGroup.Item>
                   <Row>
                     <Col clasName="text-secondary" sm={2}>{post.usuario}</Col>
@@ -110,7 +116,7 @@ export function HomePart() {
                     </Col>
                   </Row>
                   </ListGroup.Item>
-                     <Button variant="primary" onClick={handleShow}>
+                     <Button variant="info" onClick={handleShow}>
                         Ver imagenes de la propiedad
                      </Button>
                      <Modal
@@ -119,57 +125,51 @@ export function HomePart() {
                        backdrop="static"
                        keyboard={false}
                        fullscreen={fullscreen}
-                      > 
-        
-        
+                      >         
                         <Modal.Header closeButton>
                            <Modal.Title>Imagenes</Modal.Title>
                         </Modal.Header> 
                         <Modal.Body>
-                           <Row>
-                               <Col sm={4}>
-                                  <div>{post.image && <img src={post.image.url} alt={post.title} className="w-100 p-0 rounded-3"/>}</div>
-                               </Col>
-                               <Col sm={4}>
-                                  <div>{post.imagea && <img src={post.imagea.url} alt={post.title} className="w-100 p-0 rounded-3"/>}</div>
-                               </Col>
-                               <Col sm={4}>
-                                  <div>{post.imagec && <img src={post.imagec.url} alt={post.title} className="w-100 p-0 rounded-3"/>}</div>
-                               </Col>
-                               <Col sm={4}>
-                                  <div>{post.imageb && <img src={post.imageb.url} alt={post.title} className="w-100 p-0 rounded-3"/>}</div>
-                               </Col>
-                               <Col sm={4}>
-                                  <div>{post.imaged && <img src={post.imaged.url} alt={post.title} className="w-100 p-0 rounded-3"/>}</div>
-                               </Col>
-                               <Col sm={4}>
-                                  <div>{post.imagee && <img src={post.imagee.url} alt={post.title} className="w-100 p-0 rounded-3"/>}</div>
-                               </Col>
-                               <Col sm={4}>
-                                  <div>{post.imagef && <img src={post.imagef.url} alt={post.title} className="w-100 p-0 rounded-3"/>}</div>
-                               </Col>
-                               <Col sm={4}>
-                                  <div>{post.imageg && <img src={post.imageg.url} alt={post.title} className="w-100 p-0 rounded-3"/>}</div>
-                               </Col>
-                               <Col sm={4}>
-                                  <div>{post.imageh && <img src={post.imageh.url} alt={post.title} className="w-100 p-0 rounded-3"/>}</div>
-                               </Col>
-                           </Row>
-                           
-              
+                        <Card className="bg-light text-white">
+                          <Container>    
+                              <br/>
+                              <Row>
+                                <Col sm={4}>
+                                    <div>{post.image && <img src={post.image.url} alt={post.title} className="rounded-3" style={{ width: '22rem' }}/>}</div>
+                                </Col>
+                                <Col sm={4}>
+                                    <div>{post.imagea && <img src={post.imagea.url} alt={post.title} className="rounded-3" style={{ width: '22rem' }}/>}</div>
+                                </Col>
+                                <Col sm={4}>
+                                    <div>{post.imagec && <img src={post.imagec.url} alt={post.title} className="rounded-3" style={{ width: '22rem' }}/>}</div>
+                                </Col>
+                                <br/>
+                                <Col sm={4}>
+                                    <div>{post.imageb && <img src={post.imageb.url} alt={post.title} className="rounded-3" style={{ width: '22rem' }}/>}</div>
+                                </Col>
+                                <Col sm={4}>
+                                    <div>{post.imaged && <img src={post.imaged.url} alt={post.title} className="rounded-3" style={{ width: '22rem' }}/>}</div>
+                                </Col>
+                                <Col sm={4}>
+                                    <div>{post.imagee && <img src={post.imagee.url} alt={post.title} className="rounded-3" style={{ width: '22rem' }}/>}</div>
+                                </Col>
+                                <Col sm={4}>
+                                    <div>{post.imagef && <img src={post.imagef.url} alt={post.title} className="rounded-3" style={{ width: '22rem' }}/>}</div>
+                                </Col>
+                                <Col sm={4}>
+                                    <div>{post.imageg && <img src={post.imageg.url} alt={post.title} className="rounded-3" style={{ width: '22rem' }}/>}</div>
+                                </Col>
+                                <Col sm={4}>
+                                    <div>{post.imageh && <img src={post.imageh.url} alt={post.title} className="rounded-3" style={{ width: '22rem' }}/>}</div>
+                                </Col>
+                              </Row>
+                              <br/>
+                            </Container>
+                           </Card> 
             </Modal.Body>
-
-
             </Modal>
-                     
                   </ListGroup>
-                  
-                 
-
-                
-                
-            
-            </div>:<p></p>}</div>
+             </div>:<p></p>}</div>
           ))}
           </Card>
          </div>

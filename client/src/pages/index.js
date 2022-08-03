@@ -7,4 +7,6 @@ export { PostFormEdit } from "./post/PostFormEdit";
 export { CompoHomePre } from "../components/CompoHome/CompoHomePre";
 export { CompoHomeVen } from "../components/CompoHome/CompoHomeVen";
 export { Apiexterna } from "../components/api/Apiexterna";
+export { AvisoDocumento } from "../components/avisos/AvisoDocumento";
+
 

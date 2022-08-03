@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import { PostProvider } from "./context/postContext";
 import './App.css';
 import { HomePage, NotFoundPage, PostForm, 
-  HomePart, Profile, PostFormEdit, CompoHomePre, CompoHomeVen, Apiexterna } from "./pages";
+  HomePart, Profile, PostFormEdit, CompoHomePre, CompoHomeVen, Apiexterna, AvisoDocumento } from "./pages";
 
 
 
@@ -30,7 +30,7 @@ function App() {
             <Route path='/edit/posts/:id' element={<PostFormEdit/>} />
             <Route path='/posts/pre' element={<CompoHomePre/>} /> 
             <Route path='/posts/ven' element={<CompoHomeVen/>} /> 
-            
+            <Route path='/aviso' element={<AvisoDocumento/>} /> 
 
             
                 

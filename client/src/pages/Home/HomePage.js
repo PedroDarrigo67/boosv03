@@ -20,6 +20,7 @@ export function HomePage() {
 
   return (
     <div>    
+    <br/><br/>
       <NavbarDemo/>
 
       {isAuthenticated ?  <CompoHomePage/>: 

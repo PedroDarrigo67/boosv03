@@ -18,6 +18,8 @@ const postSchema = new mongoose.Schema(
         metrosterreno: { type: String, trim: true },
         tipo: { type: String, trim: true },
         expensas: { type: Number  },
+        lat:{type: String, trim: true},
+        lon:{type: String, trim: true},
         antiguedad: { type: String, trim: true },        
         image:{ url: String, public_id: String}, 
         imagea:{ url: String, public_id: String},     

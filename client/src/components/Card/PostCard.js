@@ -1,17 +1,20 @@
 import { useNavigate } from "react-router-dom";
 import Card from 'react-bootstrap/Card';
 import {Container, Row, Col} from 'react-bootstrap';
+import { usePosts } from "../../context/postContext";
 
 
 
 export function PostCard({ post }) {
   const navigate = useNavigate();
+  const { posts } = usePosts();
   return (
     <div>
-      {(post.habilitada==="pub") && <div>
-        
+      {(post.habilitada==="pub") && <div>     
+       
       <div className="px-1 my-1 shadow p-1 mb-1 bg-white rounded" onClick={() => navigate(`/posts/${post._id}`)}>
-      <Card style={{ width: '70rem' }} className='text-center ' >
+      <Card style={{ width: '69rem' }} className='text-center ' >
+      
         <Card.Body>
           <Container>  
             <Row>
@@ -87,7 +90,7 @@ export function PostCard({ post }) {
 
       </div>}
 
-
+      
     </div>
   );
 }

@@ -29,3 +29,4 @@ export const updatePostRequest = async (id, newPostFields) => {
     },
   });
 };
+

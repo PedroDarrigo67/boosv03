@@ -14,38 +14,41 @@ import "./image.css"
 const Hero = () => (
   <div className="text-center hero">
     <Container>
-     <br/><br/>     
-         <Row>
-           <Col s={11}>
+     <br/>     
+         
+         <Col sm={1}><Image style={{ width: '8rem' }} src={logo} rounded /></Col> 
+        <Col sm={4}><h1 className="text-bold ">Inmoprof</h1></Col>
+        <Col sm={1}></Col> 
+        <Row>
+          <Col sm={6}>
+            <Row>
+            </Row>
                <Row>
-                  <Col sm={3}><Image style={{ width: '6rem' }} src={logo} rounded /></Col> 
-                  <Col sm={8}><h3 className="text-bold">Bienvenido al portal 
-                     colaborativo más importante de la región!</h3></Col>
-               </Row>
-               <br/>
-               <Row>
-                  <p className="text-center text-body">
+                 <h3 className="text-bold">Bienvenido al portal colaborativo más importante de la región!</h3>
+                 <p className="text-center text-body">
                      En este portal podrás encontrar las propiedades que tus clientes 
                      te están solicitando, o encontrarle el cliente a tus propiedades 
                      colaborando con otros profesionales, sabiendo de antemano que el 
                      colega con el que te contactes tiene la voluntad de compartir 
                      honorarios! así entre todos vamos a aumentar las probabilidades de cierre!.
                   </p>
-               </Row>
-            </Col> 
-            <Col s={2}>
-               <Row> 
-                  <Col sm={3} className="rotate">
-                     <Image style={{ width: '8rem' }} src={Cordoba} rounded />
-                  </Col>
-                  <Col sm={3} className="rotate1">
-                     <Image style={{ width: '8rem' }} src={Rosario} rounded />
-                  </Col>
-                  <Col sm={3}>
-                     <Image style={{ width: '8rem' }} src={Buenos} rounded />
-                  </Col> 
-               </Row>
-               <Row> 
+                  </Row>
+               </Col>
+        
+        
+           <Col sm={6}> 
+              <Row> 
+                 <Col sm={3} className="rotate">
+                    <Image style={{ width: '8rem' }} src={Cordoba} rounded />
+                 </Col>
+                 <Col sm={3} className="rotate1">
+                    <Image style={{ width: '8rem' }} src={Rosario} rounded />
+                 </Col>
+                 <Col sm={3}>
+                    <Image style={{ width: '8rem' }} src={Buenos} rounded />
+                 </Col> 
+              </Row>
+              <Row> 
                  <Col sm={3} className="rotate1">
                     <Image style={{ width: '8rem' }} src={Mendoza} rounded />
                  </Col>
@@ -55,10 +58,24 @@ const Hero = () => (
                  <Col sm={3} className="rotate2">
                     <Image style={{ width: '8rem' }} src={Comodoro} rounded />
                  </Col>
-              </Row>            
-           </Col> 
-         </Row>         
+              </Row>
+           
+           
+           
+           
+           </Col>
+        
+        
+        
+        
+        
+         </Row>
+      
     </Container>
+
+
+
+
   </div>
 );
 

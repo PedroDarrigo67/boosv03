@@ -162,3 +162,13 @@ export const createPost = async (req, res) => {
             return res.satatus(500).json({message: err.message});
         }
     };
+
+    export const getPostPub = async (req, res) => {
+        try{
+            const post = await Post.find(req.params.habilitada);
+        if (!post) return res.sendStatus(404);
+        return res.json(post);
+        } catch(err){
+            return res.satatus(500).json({message: err.message});
+        }
+    };

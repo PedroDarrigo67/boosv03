@@ -13,12 +13,7 @@ export function CompoHomePage() {
     <div> 
       <Hero/>
         <Container>
-          <Row className="px-4 my-5">
-            <Col sm={6}></Col>
-              <Col>
-                <Row></Row>                     
-              </Col>  
-          </Row>
+          <br/>
           <Row>
             <h4>
               Presione la sobre la propiedad que desea ver con mas detalle - Publicaciones ({posts.length})</h4>

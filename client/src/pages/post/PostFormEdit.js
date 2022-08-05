@@ -69,9 +69,7 @@ export function PostFormEdit() {
         });
       }
     })();
-  }, [params.id, getPost]);
-  
-  
+  }, [params.id, getPost]); 
 
   return (
      <div>

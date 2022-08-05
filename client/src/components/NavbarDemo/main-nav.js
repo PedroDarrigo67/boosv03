@@ -37,7 +37,7 @@ const MainNav = () => (
     </NavLink>
     
     <NavLink
-      to="/api"
+      to=""
       exact
       className="nav-link"
       activeClassName="router-link-exact-active"

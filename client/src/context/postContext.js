@@ -4,7 +4,8 @@ import {
   deletePostRequest,
   createPostRequest,
   getPostRequest,
-  updatePostRequest,  
+  updatePostRequest,
+ 
 } from "../api/posts";
 
 const postContext = createContext();
@@ -50,6 +51,8 @@ export const PostProvider = ({ children }) => {
       console.error(error);
     }
   };
+
+  
 
   const updatePost = async (id, post) => {
     try {

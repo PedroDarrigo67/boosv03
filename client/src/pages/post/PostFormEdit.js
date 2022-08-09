@@ -13,8 +13,6 @@ import Button from 'react-bootstrap/Button';
 import {NavbarDemo} from '../../components/NavbarDemo/NavbarDemo';
 import {useAuth0} from '@auth0/auth0-react';
 
-
-
 export function PostFormEdit() {
   
   const { createPost, getPost, updatePost } = usePosts();
@@ -119,19 +117,15 @@ export function PostFormEdit() {
           <Modal.Body>
                   <label htmlFor="description"> Denominacion </label>
           </Modal.Body>
-
-
-
-          <Modal.Body>
-              <h6>HABILITAR</h6>
-              <Field
-                placeholder="habilitada"
-                name="habilitada"
-                /></Modal.Body>
-
-
-
-          <Modal.Body>
+                <Modal.Body>
+                  <h6>Habilitar</h6>
+                    <Field as="select" name="habilitada">
+                      <option value="pub">Publicar</option>
+                      <option value="ven">Vendida</option>      
+                      <option value="rec">Rechazar</option>                
+                    </Field><p className="text-primary">Campo obligatorio</p> 
+                </Modal.Body>      
+           <Modal.Body>
               <h6>Ingrese un titulo</h6>
               <Field
                 placeholder="nombre"
@@ -143,16 +137,6 @@ export function PostFormEdit() {
                 className="text-red-400 text-sm"
                 />
           </Modal.Body>
-            
-          
-
-
-
-
-
-
-
-
           <Modal.Body>
               <h6>Direccion</h6>
               <Field
@@ -191,8 +175,7 @@ export function PostFormEdit() {
           </Modal.Body>  
 
            <Modal.Body>
-          <h6>Ingrese un detalle</h6>
-             
+          <h6>Ingrese un detalle</h6>             
             <Field
               component="textarea"
               name="detalle"
@@ -222,11 +205,12 @@ export function PostFormEdit() {
                 />
           </Modal.Body>
           <Modal.Body>
-              <h6>moneda</h6>
-              <Field
-                placeholder="moneda"
-                name="moneda"
-                />
+            <h6>moneda</h6>
+            <Field as="select" name="moneda">
+              <option value="Pesos">Pesos</option>
+              <option value="Dolar">Dolar</option>
+              <option value="Otro">Otro</option>
+              </Field><p className="text-primary">Campo obligatorio</p> 
           </Modal.Body>
           <Modal.Body>
               <h6>plantas</h6>
@@ -264,11 +248,12 @@ export function PostFormEdit() {
                 />
           </Modal.Body>
           <Modal.Body>
-              <h6>tipo de operacion</h6>
-              <Field
-                placeholder="tipo"
-                name="tipo"
-                />
+            <h6>Tipo de operacion</h6>            
+              <Field as="select" name="tipo">
+                <option value="venta">Venta</option>
+                <option value="alquiler">Alquiler</option>
+                <option value="emprendimiento">Emprendimiento</option>
+              </Field><p className="text-primary">Campo obligatorio</p>  
           </Modal.Body>
           <Modal.Body>
             <div>3 Imagen</div>

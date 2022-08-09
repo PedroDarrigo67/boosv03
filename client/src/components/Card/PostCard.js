@@ -13,8 +13,7 @@ export function PostCard({ post }) {
       {(post.habilitada==="pub") && <div>     
        
       <div className="px-1 my-1 shadow p-1 mb-1 bg-white rounded" onClick={() => navigate(`/posts/${post._id}`)}>
-      <Card style={{ width: '69rem' }} className='text-center ' >
-      
+      <Card style={{ width: '69rem' }} className='text-center ' >      
         <Card.Body>
           <Container>  
             <Row>
@@ -26,8 +25,7 @@ export function PostCard({ post }) {
               <Col sm={6}>
                 <Card.Subtitle className="mb-2 text-muted text-left">{post.detalle}</Card.Subtitle></Col>
               <Col sm={2}> </Col>
-              <Col sm={3}>                
-              </Col>
+              <Col sm={3}> </Col>
             </Row>            
             <Row>
               <Col sm={4}>

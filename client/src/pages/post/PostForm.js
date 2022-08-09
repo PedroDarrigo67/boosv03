@@ -1,4 +1,5 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
+import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import { useParams } from "react-router-dom";
 import * as Yup from "yup";
 import { usePosts } from "../../context/postContext";
@@ -162,11 +163,12 @@ export function PostForm() {
                     </Col>         
                     <Col sm={4}>
                         <Modal.Body>
-                          <h6>Tipo de operacion</h6>
-                          <Field
-                            placeholder="tipo"
-                            name="tipo"
-                            /><p className="text-primary">Campo obligatorio</p>
+                          <h6>Tipo de operacion</h6>            
+                          <Field as="select" name="tipo">
+                            <option value="venta">Venta</option>
+                            <option value="alquiler">Alquiler</option>
+                            <option value="emprendimiento">Emprendimiento</option>
+                          </Field><p className="text-primary">Campo obligatorio</p>  
                       </Modal.Body>   
                     </Col>           
                   </Row>
@@ -253,10 +255,11 @@ export function PostForm() {
                     <Col sm={4}>
                       <Modal.Body>
                         <h6>moneda</h6>
-                        <Field
-                          placeholder="moneda"
-                          name="moneda"
-                          /><p className="text-primary">Campo obligatorio</p>
+                        <Field as="select" name="moneda">
+                          <option value="Pesos">Pesos</option>
+                          <option value="Dolar">Dolar</option>
+                          <option value="Otro">Otro</option>
+                        </Field><p className="text-primary">Campo obligatorio</p> 
                       </Modal.Body>
                     </Col>
                     <Col sm={4}>
@@ -272,13 +275,14 @@ export function PostForm() {
                   <Row>
                     <Col sm={2}></Col>
                     <Col sm={4}>
-                      <Modal.Body>
+
+                    <Modal.Body>
                         <h6>ambientes</h6>
                         <Field
                           placeholder="ambientes"
                           name="ambientes"
                           />
-                      </Modal.Body>   
+                      </Modal.Body>
                     </Col>
                     <Col sm={4}>
                       <Modal.Body>

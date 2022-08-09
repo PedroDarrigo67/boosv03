@@ -12,6 +12,7 @@ import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import {NavbarDemo} from '../../components/NavbarDemo/NavbarDemo';
 import {useAuth0} from '@auth0/auth0-react';
+import { Map } from '../../components/map/Map'
 
 
 
@@ -114,7 +115,7 @@ export function PostForm() {
             }
             actions.resetForm();
             actions.setSubmitting(false);
-            navigate("/");
+            navigate("/aviso");
           }}
         >
           {({ setFieldValue, isSubmitting, handleSubmit }) => (
@@ -131,198 +132,266 @@ export function PostForm() {
                           <label htmlFor="description"> Ingrese nueva publicacion </label>
                     </Modal.Title>
                   </Modal.Header>
+                  <Row>
+                    <Col sm={1}></Col>
+                    <Col sm={10}>
+                      <p className="text-primary">Todos los campoe que dicen "Campo obligatorio", 
+                      deberan ser completados con informacion porque sino puede no cargarse la publicacion</p>
+                    </Col>
+                    
+                  </Row>
+                  <Row>
+                    <Col sm={4}>
+                      <Modal.Body>
+                        <h6>Ingrese un titulo</h6>
+                        <Field
+                          placeholder="nombre"
+                          name="nombre"
+                          />
+                          <p className="text-primary">Campo obligatorio</p>
+                        <ErrorMessage
+                          component="p"
+                          name="nombre"
+                          className="text-red-400 text-sm"
+                          />
+                      </Modal.Body>
+                    </Col>
+                    <Col sm={4}>
+                      <Row><br /></Row>                      
+                        <Row>Ingrese informacion para que resalte su publicacion</Row>
+                    </Col>         
+                    <Col sm={4}>
+                        <Modal.Body>
+                          <h6>Tipo de operacion</h6>
+                          <Field
+                            placeholder="tipo"
+                            name="tipo"
+                            /><p className="text-primary">Campo obligatorio</p>
+                      </Modal.Body>   
+                    </Col>           
+                  </Row>
+                  <Row>
+                    <Col sm={4}>
+                        <Modal.Body>
+                          <h6>Direccion</h6>
+                          <Field
+                            placeholder="direccion"
+                            name="direccion"
+                            /><p className="text-primary">Campo obligatorio</p>
+                          <ErrorMessage
+                            component="p"
+                            name="direccion"
+                            className="text-red-400 text-sm"
+                            />
+                        </Modal.Body>
+                      </Col>
+                      <Col sm={4}>
+                          <Modal.Body>
+                          <h6>altura</h6>
+                          <Field
+                            placeholder="altura"
+                            name="altura"
+                            />
+                          <ErrorMessage
+                            component="p"
+                            name="altura"
+                            className="text-red-400 text-sm"
+                            />
+                          </Modal.Body>
+                      </Col>
+                      <Col sm={4}>
+                        <Modal.Body>
+                        <h6>barrio</h6>
+                        <Field
+                          placeholder="barrio"
+                          name="barrio"
+                          />
+                        <ErrorMessage
+                          component="p"
+                          name="barrio"
+                          className="text-red-400 text-sm"
+                          />
+                        </Modal.Body> 
+                      </Col>
+                    </Row>  
+                  <Row>
+                    <Col sm={4}>
+                      <Modal.Body>
+                        <Map/>
+                      </Modal.Body>
+                    </Col>
+                    <Col sm={1}></Col>
+                    <Col sm={4}>
+                      <Modal.Body>
+                        <h6>Ingrese un detalle</h6>                    
+                        <Field
+                          component="textarea"
+                          name="detalle"
+                          id="detalle"
+                          placeholder="detalle informacion"
+                          rows="3"
+                          cols="50"
+                        /><p className="text-primary">Campo obligatorio</p>
+                        <ErrorMessage
+                          component="p"
+                          name="detalle"
+                          className="text-red-400 text-sm"
+                        />          
+                      </Modal.Body>          
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col sm={4}>
+                      <Modal.Body>
+                        <h6>precio</h6>
+                        <Field
+                          placeholder="precio"
+                          name="precio"
+                          /><p className="text-primary">Campo obligatorio</p>
+                      </Modal.Body>
+                    </Col>
+                    <Col sm={4}>
+                      <Modal.Body>
+                        <h6>moneda</h6>
+                        <Field
+                          placeholder="moneda"
+                          name="moneda"
+                          /><p className="text-primary">Campo obligatorio</p>
+                      </Modal.Body>
+                    </Col>
+                    <Col sm={4}>
+                      <Modal.Body>
+                        <h6>expensas</h6>
+                        <Field
+                          placeholder="expensas"
+                          name="expensas"
+                          /><p className="text-primary">Campo obligatorio</p>
+                      </Modal.Body>   
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col sm={2}></Col>
+                    <Col sm={4}>
+                      <Modal.Body>
+                        <h6>ambientes</h6>
+                        <Field
+                          placeholder="ambientes"
+                          name="ambientes"
+                          />
+                      </Modal.Body>   
+                    </Col>
+                    <Col sm={4}>
+                      <Modal.Body>
+                        <h6>plantas</h6>
+                        <Field
+                          placeholder="plantas"
+                          name="planta"
+                          />
+                      </Modal.Body>
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col sm={2}></Col>
+                    <Col sm={4}>
+                        <Modal.Body>
+                        <h6>habitaciones</h6>
+                        <Field
+                          placeholder="habitaciones"
+                          name="habitaciones"
+                          />
+                        </Modal.Body>   
+                    </Col>
+                    <Col sm={4}>
+                      <Modal.Body>
+                        <h6>banos</h6>
+                        <Field
+                          placeholder="banos"
+                          name="banos"
+                          />
+                      </Modal.Body>
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col sm={4}>
+                      <Modal.Body>
+                        <h6>antiguedad</h6>
+                        <Field
+                          placeholder="antiguedad"
+                          name="antiguedad"
+                          />
+                      </Modal.Body>  
+                    </Col>
+                    <Col sm={4}>
+                      <Modal.Body>
+                        <h6>m2 construidos</h6>
+                        <Field
+                          placeholder="metrosconstruidos"
+                          name="metrosconstruidos"
+                          />
+                      </Modal.Body>
+                    </Col>
+                    <Col sm={4}>
+                      <Modal.Body>
+                        <h6>m2 terreno</h6>
+                        <Field
+                          placeholder="metrosterreno"
+                          name="metrosterreno"
+                          />
+                      </Modal.Body>
+                    </Col>
+                  </Row>
+                    <Row>
+                      <Col sm={1}></Col>                                   
+                      <Col sm={4}>
+                        <div>1 Imagen</div> 
+                        <input
+                          type="file"
+                          name="image"
+                          onChange={(e) => setFieldValue("image", e.target.files[0])}/>
+                          <p className="text-primary">Campo obligatorio</p>
+                        <ErrorMessage
+                          component="p"
+                          name="image"/>   
+                      </Col>   
+                    </Row>
+                    <Row>
+                    <Col sm={1}></Col>
 
-                  <Modal.Body>
-                      <h6>Ingrese un titulo</h6>
-                      <Field
-                        placeholder="nombre"
-                        name="nombre"
-                        />
+                    <Col sm={4}>
+                      <div>2 Imagen</div>  
+                      <input
+                        type="file"
+                        name="imagea"
+                        onChange={(e) => setFieldValue("imagea", e.target.files[0])}/>
                         <p className="text-primary">Campo obligatorio</p>
                       <ErrorMessage
                         component="p"
-                        name="nombre"
-                        className="text-red-400 text-sm"
-                        />
-                  </Modal.Body>
-
-                  <Modal.Body>
-                      <h6>Direccion</h6>
-                      <Field
-                        placeholder="direccion"
-                        name="direccion"
-                        /><p className="text-primary">Campo obligatorio</p>
-                      <ErrorMessage
-                        component="p"
-                        name="direccion"
-                        className="text-red-400 text-sm"
-                        />
-                  </Modal.Body>  
-                  <Modal.Body>
-                      <h6>altura</h6>
-                      <Field
-                        placeholder="altura"
-                        name="altura"
-                        />
-                      <ErrorMessage
-                        component="p"
-                        name="altura"
-                        className="text-red-400 text-sm"
-                        />
-                  </Modal.Body>  
-                  <Modal.Body>
-                      <h6>barrio</h6>
-                      <Field
-                        placeholder="barrio"
-                        name="barrio"
-                        />
-                      <ErrorMessage
-                        component="p"
-                        name="barrio"
-                        className="text-red-400 text-sm"
-                        />
-                  </Modal.Body> 
-
-                  <Modal.Body>
-                      aca va mapa
-                  </Modal.Body>
-
-                  <Modal.Body>
-                  <h6>Ingrese un detalle</h6>
-                    
-                    <Field
-                      component="textarea"
-                      name="detalle"
-                      id="detalle"
-                      placeholder="detalle informacion"
-                      rows="3"
-                      cols="50"
-                    /><p className="text-primary">Campo obligatorio</p>
-                    <ErrorMessage
-                      component="p"
-                      name="detalle"
-                      className="text-red-400 text-sm"
-                    />          
-                  </Modal.Body>                       
-                  <Modal.Body>
-                      <h6>precio</h6>
-                      <Field
-                        placeholder="precio"
-                        name="precio"
-                        /><p className="text-primary">Campo obligatorio</p>
-                  </Modal.Body>
-                  <Modal.Body>
-                      <h6>moneda</h6>
-                      <Field
-                        placeholder="moneda"
-                        name="moneda"
-                        /><p className="text-primary">Campo obligatorio</p>
-                  </Modal.Body>
-                  <Modal.Body>
-                      <h6>expensas</h6>
-                      <Field
-                        placeholder="expensas"
-                        name="expensas"
-                        /><p className="text-primary">Campo obligatorio</p>
-                  </Modal.Body>   
-                  <Modal.Body>
-                      <h6>ambientes</h6>
-                      <Field
-                        placeholder="ambientes"
-                        name="ambientes"
-                        />
-                  </Modal.Body>   
-                  <Modal.Body>
-                      <h6>plantas</h6>
-                      <Field
-                        placeholder="plantas"
-                        name="planta"
-                        />
-                  </Modal.Body>
-                  <Modal.Body>
-                      <h6>habitaciones</h6>
-                      <Field
-                        placeholder="habitaciones"
-                        name="habitaciones"
-                        />
-                  </Modal.Body>
-                  <Modal.Body>
-                      <h6>banos</h6>
-                      <Field
-                        placeholder="banos"
-                        name="banos"
-                        />
-                  </Modal.Body>
-                  <Modal.Body>
-                      <h6>antiguedad</h6>
-                      <Field
-                        placeholder="antiguedad"
-                        name="antiguedad"
-                        />
-                  </Modal.Body>  
-                  <Modal.Body>
-                      <h6>m2 construidos</h6>
-                      <Field
-                        placeholder="metrosconstruidos"
-                        name="metrosconstruidos"
-                        />
-                  </Modal.Body>
-                  <Modal.Body>
-                      <h6>m2 terreno</h6>
-                      <Field
-                        placeholder="metrosterreno"
-                        name="metrosterreno"
-                        />
-                  </Modal.Body>
-                  <Modal.Body>
-                      <h6>tipo de operacion</h6>
-                      <Field
-                        placeholder="tipo"
-                        name="tipo"
-                        /><p className="text-primary">Campo obligatorio</p>
-                  </Modal.Body>                    
-                  <Modal.Body>
-                    <div>1 Imagen</div> 
-                    <input
-                      type="file"
-                      name="image"
-                      onChange={(e) => setFieldValue("image", e.target.files[0])}/>
-                      <p className="text-primary">Campo obligatorio</p>
-                    <ErrorMessage
-                      component="p"
-                      name="image"/>     
-                  </Modal.Body>                   
-                  <Modal.Body>
-                    <div>2 Imagen</div>  
-                    <input
-                      type="file"
-                      name="imagea"
-                      onChange={(e) => setFieldValue("imagea", e.target.files[0])}/>
-                      <p className="text-primary">Campo obligatorio</p>
-                    <ErrorMessage
-                      component="p"
-                      name="imagea"/>     
-                  </Modal.Body>                    
+                        name="imagea"/>     
+                      </Col>    
+                      </Row>
+                    <Row>
+                    <Col sm={1}></Col>            
                   
-                  <Modal.Body>
-                    <div>3 Imagen</div>
-                    <input
-                      type="file"
-                      name="imagec"
-                      onChange={(e) => setFieldValue("imagec", e.target.files[0])}/>
-                      <p className="text-primary">Campo obligatorio</p>
-                    <ErrorMessage
-                      component="p"
-                      name="imagec"/>     
-                  </Modal.Body>         
-                  <Modal.Body>
-                  <button onClick={(e) => setFieldValue("usuario", user.name)}>Cargar usuario</button>
+                    <Col sm={4}>
+                      <div>3 Imagen</div>
+                      <input
+                        type="file"
+                        name="imagec"
+                        onChange={(e) => setFieldValue("imagec", e.target.files[0])}/>
+                        <p className="text-primary">Campo obligatorio</p>
+                      <ErrorMessage
+                        component="p"
+                        name="imagec"/>     
+                  </Col>
+                    </Row>
+                  
+                <Modal.Footer>
+
+                <Button onClick={(e) => setFieldValue("usuario", user.name)}>Cargar usuario</Button>
                     <Field
                         placeholder="usuario"
                         name="usuario"
                         /><p className="text-primary">Campo obligatorio</p>
-                  </Modal.Body>
-                <Modal.Footer>
                   
                   <Button 
                     bsStyle="primary"
@@ -336,8 +405,7 @@ export function PostForm() {
                             )}
                     </Button>
                 </Modal.Footer>
-        </Modal.Dialog>
-                       
+        </Modal.Dialog>                       
         </Form>
           )}
         </Formik>

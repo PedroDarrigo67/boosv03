@@ -1,26 +1,27 @@
 import React from "react";
+import Data from "./Data";
 import { usePosts } from "../../context/postContext";
+import Button from 'react-bootstrap/Button';
 
-
-const Buttons = ({ filterItem, setItem, menuItems }) => {
-  const { Data } = usePosts();
+const ButtonsFilter = ({ filterItem, setItem, menuItems }) => {
+  const { posts } = usePosts();
   return (
     <>
       <div className="d-flex justify-content-center">
         {menuItems.map((Val, id) => {
           return (
-            <button
-              className="btn-dark text-white p-1 px-2 mx-5 btn fw-bold"
+            <Button
+              variant="light"
               onClick={() => filterItem(Val)}
               key={id}
             >
               {Val}
-            </button>
+            </Button>
           );
         })}
         <button
           className="btn-dark text-white p-1 px-3 mx-5 fw-bold btn"
-          onClick={() => setItem(Data)}
+          onClick={() => setItem(posts)}
         >
           All
         </button>
@@ -48,4 +49,4 @@ const Buttons = ({ filterItem, setItem, menuItems }) => {
   );
 };
 
-export default Buttons;
+export default ButtonsFilter;

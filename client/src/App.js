@@ -4,7 +4,7 @@ import { PostProvider } from "./context/postContext";
 import './App.css';
 import { HomePage, NotFoundPage, PostForm, 
   HomePart, Profile, PostFormEdit, CompoHomePre, CompoHomeVen, Apiexterna, AvisoDocumento } from "./pages";
-import  Filter  from "./components/Filter/Filter"
+
 
 
 // <Route path="/postform/:id" element={<PostFormEdit/>} />
@@ -31,7 +31,7 @@ function App() {
             <Route path='/posts/pre' element={<CompoHomePre/>} /> 
             <Route path='/posts/ven' element={<CompoHomeVen/>} /> 
             <Route path='/aviso' element={<AvisoDocumento/>} /> 
-            <Route path='/filter' element={<Filter/>} />
+            
             
              
             

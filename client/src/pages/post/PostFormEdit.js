@@ -120,6 +120,7 @@ export function PostFormEdit() {
                 <Modal.Body>
                   <h6>Habilitar</h6>
                     <Field as="select" name="habilitada">
+                      <option value="">---</option>
                       <option value="pub">Publicar</option>
                       <option value="ven">Vendida</option>      
                       <option value="rec">Rechazar</option>                
@@ -207,6 +208,7 @@ export function PostFormEdit() {
           <Modal.Body>
             <h6>moneda</h6>
             <Field as="select" name="moneda">
+              <option value="">---</option>
               <option value="Pesos">Pesos</option>
               <option value="Dolar">Dolar</option>
               <option value="Otro">Otro</option>
@@ -250,6 +252,7 @@ export function PostFormEdit() {
           <Modal.Body>
             <h6>Tipo de operacion</h6>            
               <Field as="select" name="tipo">
+                <option value="">---</option>
                 <option value="venta">Venta</option>
                 <option value="alquiler">Alquiler</option>
                 <option value="emprendimiento">Emprendimiento</option>

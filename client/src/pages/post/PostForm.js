@@ -165,6 +165,7 @@ export function PostForm() {
                         <Modal.Body>
                           <h6>Tipo de operacion</h6>            
                           <Field as="select" name="tipo">
+                            <option value="">---</option>
                             <option value="venta">Venta</option>
                             <option value="alquiler">Alquiler</option>
                             <option value="emprendimiento">Emprendimiento</option>
@@ -256,6 +257,7 @@ export function PostForm() {
                       <Modal.Body>
                         <h6>moneda</h6>
                         <Field as="select" name="moneda">
+                          <option value="">---</option>
                           <option value="Pesos">Pesos</option>
                           <option value="Dolar">Dolar</option>
                           <option value="Otro">Otro</option>
